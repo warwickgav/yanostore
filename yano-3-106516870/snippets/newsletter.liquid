@@ -1,0 +1,41 @@
+
+<div class="left-column">
+	<div class="block__header">
+		{% if settings.newsletter_title != blank %}
+			<h4 class="title">{{ settings.newsletter_title }}</h4>
+		{% endif %}
+		{% if settings.newsletter_description != blank %}
+			<p class="subtitle">{{ settings.newsletter_description }}</p>
+		{% endif %}
+	</div>
+</div>
+<div class="right-column">
+	<div class="block__content">
+		{% if settings.newsletter_mailchimp %}
+			{% assign form_action = settings.newsletter_form_action %}
+			<form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="formNewsletter clearfix">
+				<div class="input-group">
+					<input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="form-control" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+					<input type="submit" class="btn btn__ghost--inv btn__newsletter btnNewsletter" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+				</div>
+			</form>
+		{% else %}
+			{% form 'customer' %}
+		{% if form.posted_successfully? %}
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#newsletterAlert').modal();
+				});
+			</script>
+		{% endif %}
+			<div class="formNewsletter">
+				<div class="input-group">
+					<input class="form-control" id="newsletter-input" type="text" name="contact[email]" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+					<input type="submit" class="btn btn__ghost--inv btn__newsletter btnNewsletter" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+					<input type="hidden" name="action" value="0">
+				</div>
+			</div>
+			{% endform %}
+		{% endif %}
+	</div>
+</div>

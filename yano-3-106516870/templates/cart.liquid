@@ -1,0 +1,109 @@
+<div class="cart">
+	<div class="page__header">
+		<div class="container">
+			<h1>{{ 'cart.general.title' | t }}</h1>
+		</div>
+	</div>
+	<div class="page__content cart__content">
+		<div class="container">
+			{% if cart.item_count > 0 %}
+				<form action="/cart" method="post" novalidate class="form form__cart">
+					<div class="cart__table">
+						<div class="cart__table--header">
+							<div class="cart__label cart__label-image">{{ 'cart.label.image' | t }}</div>
+							<div class="cart__label cart__label-product">{{ 'cart.label.product' | t }}</div>
+							<div class="cart__label cart__label-price">{{ 'cart.label.price' | t }}</div>
+							<div class="cart__label cart__label-quantity">{{ 'cart.label.quantity' | t }}</div>
+							<div class="cart__label cart__label-subtotal">{{ 'cart.label.total' | t }}</div>
+						</div>
+						<div class="cart__table--list">
+							<ol class="cart__list">
+								{% for item in cart.items %}
+								<li class="cart__item">
+									<div class="productImage" data-label="{{ 'customer.order.product' | t }}">
+										<a href="{{ item.url | within: collections.all }}" class="cartImage">
+											<img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}">
+										</a>
+									</div>
+									<div>
+										<a href="{{ item.url }}" class="h4">
+											{{ item.product.title }}
+										</a>
+										{% unless item.variant.title contains 'Default' %}
+										<br>
+										<small>{{ item.variant.title }}</small>
+										{% endunless %}
+										{% if settings.cart_vendor_enable %}
+											<p>{{ item.vendor }}</p>
+										{% endif %}
+										{% assign property_size = item.properties | size %}
+										{% if property_size > 0 %}
+											{% for p in item.properties %}
+												{% unless p.last == blank %}
+												{{ p.first }}:
+												{% if p.last contains '/uploads/' %}
+													<a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+												{% else %}
+													{{ p.last }}
+												{% endif %}
+												<br>
+												{% endunless %}
+											{% endfor %}
+										{% endif %}
+										<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cartRemove">
+											<small>{{ 'cart.general.remove' | t }}</small>
+										</a>
+									</div>
+									<div class="text-center" data-label="{{ 'cart.label.price' | t }}">
+                                                <span class="priceProduct">
+                                                    {{ item.price | money }}
+                                                </span>
+									</div>
+									<div class="text-center" data-label="{{ 'cart.label.quantity' | t }}">
+										<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">
+									</div>
+									<div data-label="{{ 'cart.label.total' | t }}" class="text-right">
+										<span class="h3 cartSubtotal">
+											{{ item.line_price | money }}
+										</span>
+									</div>
+								</li>
+								{% endfor %}
+							</ol>
+						</div>
+					</div>
+					<div class="cart__footer">
+						<div class="functionCart row noGutter">
+							{% if settings.cart_notes_enable %}
+								<div class="col-xs-12 col-sm-6 col-md-7">
+									<label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+									<textarea name="note" class="form-control" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+								</div>
+							{% endif %}
+							<div class="text-right col-xs-12{% if settings.cart_notes_enable %} col-sm-6 col-md-5{% endif %}">
+								<p>
+									<span class="cartSubtotalTitle">{{ 'cart.general.subtotal' | t }}</span>
+									<span class="h3 cartSubtotal">{{ cart.total_price | money }}</span>
+								</p>
+
+								<p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
+
+							</div>
+						</div>
+						<div class="btn-container">
+							<input type="submit" name="update" class="btn btn__default btn-update-cart" value="{{ 'cart.general.update' | t }}">
+							<input type="submit" name="checkout" class="btn btn__checkout" value="{{ 'cart.general.checkout' | t }}">
+						</div>
+					</div>
+				</form>
+			{% else %}
+				<div class="cart-empty">
+					<p>{{ 'cart.general.empty' | t }}</p>
+					<div class="btn-container">
+
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

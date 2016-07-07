@@ -1,0 +1,67 @@
+{% if settings.vela_social_enable %}
+	<div id="velaSocial" class="velaSocial">
+	    {% if settings.vela_social_title != blank %}
+	        <h4 class="velaTitle hidden">{{ settings.vela_social_title }}</h4>
+	    {% endif %}
+	    <div class="velaContent">        
+	        <ul class="velalistSocial list-unstyled list-inline">
+	            {% if settings.vela_social_facebook != blank %}
+	                <li class="facebook">
+	                    <a target="_blank" href="{{ settings.vela_social_facebook }}" title="{{ shop.name }} on Facebook" class="btn-social" data-original-title="Facebook">
+	                        <i class="fa fa-facebook-square"></i>
+	                        <span>Facebook</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	            {% if settings.vela_social_twitter != blank %}
+	                <li class="twitter">
+	                    <a target="_blank" href="{{ settings.vela_social_twitter }}" title="{{ shop.name }} on Twitter" class="btn-social" data-original-title="Twitter">
+	                        <i class="fa fa-twitter-square"></i>
+	                        <span>Twitter</span>
+	                    </a>
+	                </li>
+	            {% endif %}	            
+	          	{% if settings.vela_social_instagram != blank %}
+	                <li class="instagram">
+	                    <a target="_blank" href="{{ settings.vela_social_instagram }}" title="{{ shop.name }} on Instagram" class="btn-social" data-original-title="Instagram">
+	                        <i class="fa fa-instagram"></i>
+	                        <span>Instagram</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	          	{% if settings.vela_social_pinterest != blank %}
+	                <li class="pinterest">
+	                    <a target="_blank" href="{{ settings.vela_social_pinterest }}" title="{{ shop.name }} on Pinterest" class="btn-social" data-original-title="Pinterest">
+	                        <i class="fa fa-pinterest-square"></i>
+	                        <span>Pinterest</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	            {% if settings.vela_social_youtube != blank %}
+	                <li class="youtube">
+	                    <a target="_blank" href="{{ settings.vela_social_youtube }}" title="{{ shop.name }} on Youtube" class="btn-social" data-original-title="Youtube">
+	                        <i class="fa fa-youtube-square"></i>
+	                        <span>Youtube</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	            {% if settings.vela_social_googleplus != blank %}
+	                <li class="google-plus">
+	                    <a target="_blank" href="{{ settings.vela_social_googleplus }}" title="{{ shop.name }} on Google Plus" class="btn-social" data-original-title="Google Plus">
+	                        <i class="fa fa-google-plus-square"></i>
+	                        <span>Google Plus</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	            {% if settings.vela_social_rss != blank %}
+	                <li class="rss">
+	                    <a target="_blank" href="{{ settings.vela_social_rss }}" title="{{ shop.name }} on RSS" class="btn-social" data-original-title="RSS">
+	                        <i class="fa fa-rss-square"></i>
+	                        <span>RSS</span>
+	                    </a>
+	                </li>
+	            {% endif %}
+	        </ul>
+	    </div>
+	</div>
+{% endif %}

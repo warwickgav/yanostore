@@ -1,0 +1,31 @@
+
+<header class="site__header" role="banner">
+	<div class="header__mid">
+		<div class="container">
+			<div class="group">
+				<div class="column one-third-lg first">
+					{% include 'customer-links' %}
+				</div>
+				<div class="column one-third-lg">
+					<div class="logo {% if settings.logo_use_image %}{% else %}{% endif %}" itemscope itemtype="http://schema.org/Organization">
+						<a href="/" itemprop="url">
+							{% if settings.logo_use_image %}
+								<img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo"{% if settings.logo_max_width != '' %} width="{{ settings.logo_max_width }}"{% endif %}{% if settings.logo_max_height != '' %} height="{{ settings.logo_max_height }}{% endif %}">
+							{% else %}
+								{{ shop.name }}
+							{% endif %}
+						</a>
+					</div>
+				</div>
+				<div class="column one-third-lg last">
+					{% include 'search' %}
+					{% include 'cart' %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header__bottom">
+		<div class="container">{% include 'navigation' %}</div>
+	</div>
+</header>
+

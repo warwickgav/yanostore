@@ -1,0 +1,124 @@
+<div id="proTab{{ vela-producttab }}" class="velaProducts">
+	<ul class="nav proTabNav vela-fw-40">
+		{% if proTitle1 != blank %}
+			<li><a href="#proTab1{{ vela-producttab }}" data-toggle="tab">{{ proTitle1 }}</a></li>
+		{% endif %}
+		{% if proTitle2 != blank %}
+			<li><a href="#proTab2{{ vela-producttab }}" data-toggle="tab">{{ proTitle2 }}</a></li>
+		{% endif %}
+		{% if proTitle3 != blank %}
+			<li><a href="#proTab3{{ vela-producttab }}" data-toggle="tab">{{ proTitle3 }}</a></li>
+		{% endif %}
+	</ul>
+	<div class="velaContent">
+		<div class="navTabContent tab-content">
+			{% if proTitle1 != blank %}
+				<div class="tab-pane" id="proTab1{{ block-producttab }}">
+					<div class="proOwlCarousel proLoading owl-page-active">
+						<div class="owl-carousel">
+							{% for product in collections[proCollection1].products limit:proLimit %}
+								{% if proRow == 1 %}
+									<div class="item">
+										{% include 'product-grid-item' %}
+									</div>
+								{% else %}
+									{% assign checkRow  = forloop.index | modulo:proRow %}
+									{% if checkRow == 1 %}
+										<div class="item">
+									{% endif %}
+										{% include 'product-grid-item' %}
+									{% if checkRow == 0 or forloop.last %}
+										</div>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+	          	</div>
+      		{% endif %}
+			{% if proTitle2 != blank %}
+	          	<div class="tab-pane" id="proTab2{{ block-producttab }}">
+	          		<div class="proOwlCarousel proLoading owl-page-active">
+						<div class="owl-carousel">
+							{% for product in collections[proCollection2].products limit:proLimit %}
+								{% if proRow == 1 %}
+									<div class="item">
+										{% include 'product-grid-item' %}
+									</div>
+								{% else %}
+									{% assign checkRow  = forloop.index | modulo:proRow %}
+									{% if checkRow == 1 %}
+										<div class="item">
+									{% endif %}
+										{% include 'product-grid-item' %}
+									{% if checkRow == 0 or forloop.last %}
+										</div>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+	          	</div>
+      		{% endif %}
+			{% if proTitle3 != blank %}
+	          	<div class="tab-pane" id="proTab3{{ block-producttab }}">
+	          		<div class="proOwlCarousel proLoading owl-page-active">
+						<div class="owl-carousel">
+							{% for product in collections[proCollection3].products limit:proLimit %}
+								{% if proRow == 1 %}
+									<div class="item">
+										{% include 'product-grid-item' %}
+									</div>
+								{% else %}
+									{% assign checkRow  = forloop.index | modulo:proRow %}
+									{% if checkRow == 1 %}
+										<div class="item">
+									{% endif %}
+										{% include 'product-grid-item' %}
+									{% if checkRow == 0 or forloop.last %}
+										</div>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+	          	</div>
+          	{% endif %}
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#proTab{{ vela-producttab }} .owl-carousel').each(function(){
+		  	$(this).owlCarousel({
+		      	items: {{ proCol }},
+		      	navigation: true,
+              	addClassActive: true,
+          		{% if proAutoPlay %}
+          			autoPlay: 8000,
+          			stopOnHover: true,
+                {% endif %}
+          		{% if proCol == 1 %}
+          			singleItem : true,
+          		{% elsif proCol < 4 %}
+          			itemsDesktop: [1199, 2],
+                    itemsDesktopSmall: [979, 2],
+                    itemsTablet: [768, 2],
+                    itemsTabletSmall: [480, 1],
+                    itemsMobile: [360, 1],
+          		{% else %}
+          			itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [979, 2],
+                    itemsTablet: [768, 2],
+                    itemsTabletSmall: [480, 2],
+                    itemsMobile: [360, 1],
+          		{% endif %}
+          		afterInit: function(){
+          			$(".proLoading").removeClass('proLoading');
+          		}
+	      	}); 
+		});
+		$('#proTab{{ vela-producttab }} .proTabNav > li:first').addClass('active');
+        $('#proTab{{ vela-producttab }} .navTabContent .tab-pane:first').addClass('active');
+	});
+</script>

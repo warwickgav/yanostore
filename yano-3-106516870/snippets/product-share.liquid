@@ -1,0 +1,72 @@
+{% if settings.product_social_enable %}
+	<div class="product__sharing">
+		<ul class="product__sharelist">
+			{% if settings.product_social_twitter_enable %}
+				<li>
+					<a class="js-btnShare btn__share btn__share--twitter" href="javascript:void(0);" data-social="twitter">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+			{% endif %}
+			{% if settings.product_social_facebook_enable %}
+				<li>
+					<a class="js-btnShare btn__share btn__share--facebook" href="javascript:void(0);" data-social="facebook">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+			{% endif %}
+			{% if settings.product_social_google_enable %}
+				<li>
+					<a class="js-btnShare btn__share btn__share--google" href="javascript:void(0);" data-social="google-plus">
+						<i class="fa fa-google-plus"></i>
+					</a>
+				</li>
+			{% endif %}
+			{% if settings.product_social_linkedin_enable %}
+				<li>
+					<a class="js-btnShare btn__share btn__share--linkedin" href="javascript:void(0);" data-social="linkedin">
+						<i class="fa fa-linkedin"></i>
+					</a>
+				</li>
+			{% endif %}
+			{% if settings.product_social_pinterest_enable %}
+				<li>
+					<a class="js-btnShare btn__share btn__share--pinterest" href="javascript:void(0);" data-social="pinterest">
+						<i class="fa fa-pinterest-p"></i>
+					</a>
+				</li>
+			{% endif %}
+			<li>
+				<a class="btn__share btn__share--email" target="_blank" href="mailto:?subject={{ product.title }}&amp;body=I think you may like this product from {{ shop.name }} - {{ shop.url }}{{ product.url }} "><i class="fa fa-envelope-square"></i></a>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.js-btnShare').on('click', function(){
+				type = $(this).attr('data-social');
+				if (type.length)
+				{
+					switch(type)
+					{
+						case 'twitter':
+							window.open('https://twitter.com/intent/tweet?text={{ product.title | truncate: 30 | url_param_escape }} {{ canonical_url }}', 'sharertwt', 'toolbar=0,status=0,width=640,height=445');
+							break;
+						case 'facebook':
+							window.open('https://www.facebook.com/sharer/sharer.php?u={{ canonical_url }}&p[images][0]={{ featured_image }}', 'sharer', 'toolbar=0,status=0,width=660,height=445');
+							break;
+						case 'google-plus':
+							window.open('https://plus.google.com/share?url={{ canonical_url }}', 'sharer', 'toolbar=0,status=0,width=660,height=445');
+							break;
+						case 'linkedin':
+							window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url={{ canonical_url }}&amp;title={{ product.title | truncate: 30 | url_param_escape }}&amp;source={{ canonical_url }}', 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
+							break;
+						case 'pinterest':
+							window.open('http://pinterest.com/pin/create/button/?url={{ canonical_url }}&amp;media={{ featured_image | img_url: 'large' }}', 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
+							break;
+					}
+				}
+			});
+		});
+	</script>
+{% endif %}

@@ -1,0 +1,12 @@
+<div class="velaFooter">
+	<h4 class="velaFooterTitle">{{ fmenuTitle }}</h4>
+	<div class="velaContent">
+		<ul class="velaFooterLinks list-unstyled">
+			{% for velaLink2 in linklists[fmenuMenu].links %}
+				<li class="{% if velaLink2.active %}active{% endif %}">
+					<a href="{{ velaLink2.url }}" title="">{{ velaLink2.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

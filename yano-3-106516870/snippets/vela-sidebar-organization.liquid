@@ -1,0 +1,46 @@
+{% if settings.sidebar_filtervendor_enable %}
+    <div class="velaFilter">
+        <h3 class="titleSidebar">{{ settings.sidebar_filtervendor_title }}</h3>
+        <div class="velaContent">
+            <ul class="listSidebar list-unstyled">
+                {% assign itemArray = settings.sidebar_filtervendor_list | split:"," %}
+                {% for itemVendor in itemArray %}
+                    {% if shop.vendors contains itemVendor %}
+                        {% if collection.current_vendor == itemVendor %}
+                            <li class="active">
+                                {{ itemVendor | link_to_vendor }}
+                            </li>
+                        {% else %}
+                            <li>
+                                {{ itemVendor | link_to_vendor }}
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{% if settings.sidebar_filtertype_enable %}
+    <div class="velaFilter">
+        <h3 class="titleSidebar">{{ settings.sidebar_filtertype_title }}</h3>
+        <div class="velaContent">
+            <ul class="listSidebar list-unstyled">
+                {% assign itemArray = settings.sidebar_filtertype_list | split:"," %}
+                {% for itemType in itemArray %}
+                    {% if shop.types contains itemType %}
+                        {% if collection.current_vendor == itemType %}
+                            <li class="active">
+                                {{ itemType | link_to_vendor }}
+                            </li>
+                        {% else %}
+                            <li>
+                                {{ itemType | link_to_vendor }}
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

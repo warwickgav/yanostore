@@ -1,0 +1,7 @@
+{% if settings.main_font_style == 'google_fonts' %}
+	<link href="https://fonts.googleapis.com/css?family={{ settings.main_font }}:100,300,400,500,700" rel="stylesheet" type="text/css">
+{% endif %}
+{% if settings.secondary_font_style == 'google_fonts' %}
+	<link href="https://fonts.googleapis.com/css?family={{ settings.secondary_font }}:100,300,400,500,700" rel="stylesheet" type="text/css">
+{% endif %}
+{{ 'yano-styles.scss.css' | asset_url | stylesheet_tag }}

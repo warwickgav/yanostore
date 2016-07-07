@@ -1,0 +1,23 @@
+{% if settings.hero_block_enable %}
+	<section class="section section__hero">
+		<div class="container bleed">
+			<div class="hero" style="background-image: url('{{ 'hero_block_image_medium.jpg' | asset_url }}');">
+				{% if settings.hero_block_title != blank or settings.hero_block_text != blank %}
+					<div class="hero__content">
+						{% if settings.hero_block_title != blank %}
+							<h2 class="title hero__title">
+								{{ settings.hero_block_title }}
+							</h2>
+						{% endif %}
+						{% if settings.hero_block_text != blank %}
+							<p class="hero__text">{{ settings.hero_block_text }}</p>
+						{% endif %}
+						<div class="btn__container">
+							<a class="btn btn__action--ghost btn--hero" href="{{ settings.hero_block_link }}" >{{ settings.hero_button_text }}</a>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

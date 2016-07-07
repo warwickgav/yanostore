@@ -1,0 +1,48 @@
+{% if settings.blogsidebar_recentarticles_enable %}
+    {% assign numberLimit = settings.blogsidebar_recentarticles_limit | plus: 0 %}
+    <div class="blogSidebar">
+        <h4 class="titleSidebar">{{ settings.blogsidebar_recentarticles_title }}</h4>
+        <div class="velaContent">
+            <ul class="listSidebarBlog list-unstyled">
+                {% for article in blogs[blog.handle].articles limit:numberLimit %}
+                    <li>
+                        <div class="media">
+                            <div class="pull-left"><a href="{{ article.url }}" title="{{ article.title }}"><img class="img-responsive" src="{{ article.image | img_url: imageSize }}" alt="{{ article.title }}" /></a></div>
+                            <div class="media-body">
+                                <a class="titleBlogsidebar" href="{{ article.url }}" title="{{ article.title }}">
+                                    {{ article.title }}
+                                </a>
+                                <!-- <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time> -->
+                                <a class="btn-readmore" href="{{ article.url }}" title="{{'blogs.vela-blog-sidebar.readmore'|t}}">{{'blogs.vela-blog-sidebar.readmore'|t}}</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+{% if settings.blog_banner_enable %}
+    {% assign bannerLink = settings.blog_banner_link %}
+    {% assign bannerImage = 'blog_sidebar_banner.jpg' %}
+    {% include 'vela-banner' %}
+{% endif %}
+{% if settings.blogsidebar_tags_enable %}
+    {% assign numberLimit = settings.blogsidebar_tags_limit | plus: 0 %}
+    {% if blog.all_tags.size > 0 %}
+        <div class="blogSidebar">
+            <h4 class="titleSidebar">{{ settings.blogsidebar_tags_title }}</h4>
+            <div class="velaContent">
+                <ul class="blogTagsList list-inline">
+                    {% for tag in blog.all_tags limit:numberLimit %}
+                        {% if current_tags contains tag %}
+                            <li>{{ tag }}</li>
+                        {% else %}
+                            <li>{{ tag | link_to_tag: tag }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

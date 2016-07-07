@@ -1,0 +1,49 @@
+{% if settings.velaslides_enable and template contains 'index' %}
+	<section id="slideshow" class="vela-fw-60">
+		<div class="slideshowLoading"></div>
+		<div id="velaSlider" class="slider nivoSlider">
+			{% for i in (1..6) %}
+				{% assign velaYN = 'slides_image' | append:i | append:'_enable' %}
+				{% assign velaImage = 'slideshow' | append:i | append:'.jpg' %}
+				{% assign velaLink = 'slides_image' | append:i | append:'_link' %}
+				{% assign velaHeading = 'slides_image' | append:i | append:'_heading' %}
+				{% assign velaCaptionId = 'velaCaption' | append:i %}
+				{% if settings[velaYN] %}
+					{% if settings[velaLink] != blank %}
+						<a class="nivo-imageLink" href="{{ settings[velaLink] }}">
+							<img class="img-responsive" src="{{ velaImage | asset_url }}" alt="{{ settings[velaHeading] }}" title="#{{ velaCaptionId }}" />
+						</a>
+					{% else %}
+						<img class="img-responsive" src="{{ velaImage | asset_url }}" alt="{{ settings[velaHeading] }}" title="#{{ velaCaptionId }}" />
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		{% for i in (1..6) %}
+			{% assign velaYN = 'slides_image' | append:i | append:'_enable' %}
+			{% assign velaHeading = 'slides_image' | append:i | append:'_heading' %}
+			{% assign velaText = 'slides_image' | append:i | append:'_text' %}
+			{% assign velaBtnText = 'slides_image' | append:i | append:'_btntxt' %}
+			{% assign velaBtnLink = 'slides_image' | append:i | append:'_btnlink' %}
+			{% assign velaHeadingColor = 'slides_image' | append:i | append:'_hcolor' %}
+			{% assign velaTextColor = 'slides_image' | append:i | append:'_tcolor' %}
+			{% assign velaTextAlign = 'slides_image' | append:i | append:'_align' %}
+			{% assign velaTextEffect = 'slides_image' | append:i | append:'_effect' %}
+			{% if settings[velaYN] %}
+				<div id="velaCaption{{i}}" class="velaHtmlCaption">
+					<div class="velaCaption align-{{ settings[velaTextAlign] }}">
+						{% if settings[velaHeading] != blank %}
+							<h3 class="velaSliderHeading {{ settings[velaTextEffect] }}-1" style="color:{{ settings[velaHeadingColor] }};">{{ settings[velaHeading] }}</h3>
+						{% endif %}
+						{% if settings[velaText] != blank %}
+							<div class="velaSliderDesc {{ settings[velaTextEffect] }}-2" style="color:{{ settings[velaTextColor] }};">{{ settings[velaText] }}</div>
+						{% endif %}
+						{% if settings[velaBtnText] != blank %}
+							<a class="btn btnVelaSlider {{ settings[velaTextEffect] }}-3" href="{{ settings[velaBtnLink] }}">{{ settings[velaBtnText] }}</a>
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</section>
+{% endif %}

@@ -1,0 +1,32 @@
+{% if settings.sidebar_categories_enable %}
+	{% assign velaCategories = settings.sidebar_categories_menu %}
+	<div id="velaCategories" class="velaCategoriesSidebar">
+  		<h3 class="titleSidebar">{{ settings.sidebar_categories_title }}</h3>
+      	{% if linklists[velaCategories] != empty %}
+            <div class="velaContent">
+              	{% for linkItem in linklists[velaCategories].links %}
+              		<div class="itemCategory">
+                        <h4 class="cateTitle">
+                          	{% if linklists[linkItem.handle] != empty %}
+                          		<a class="cateItem hasSubCategory{% if linkItem.active %} active{% endif %} collapsed" data-toggle="collapse" href="#subCategory{{ forloop.index }}" >{{ linkItem.title }}</a>
+                          	{% else %}
+                          		<a class="cateItem {% if linkItem.active %}active{% endif %}" href="{{ linkItem.url }}">{{ linkItem.title }}</a>
+                            {% endif %}
+                        </h4>
+                      	{% if linklists[linkItem.handle] != empty %}
+                            <div id="subCategory{{ forloop.index }}" class="collapse">
+                                <div class="panel-body">
+                                  	<ul class="listSidebar list-unstyled">
+                                  		{% for linkChildItem in linklists[linkItem.handle].links %}
+                                      		<li><a href="{{ linkChildItem.url }}" title="{{ linkChildItem.title }}">{{ linkChildItem.title }}</a></li>
+                                  		{% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                      	{% endif %}
+                	</div>
+                {% endfor %}
+            </div>
+      	{% endif %}
+	</div>
+{% endif %}

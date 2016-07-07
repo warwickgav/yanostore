@@ -1,0 +1,62 @@
+{% assign productImageSize = 'large' %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+{% assign sold_out = true %}
+{% if product.available %}
+    {% assign sold_out = false %}
+{% endif %}
+
+    <div class="product__item{% if on_sale %} on-sale{% endif %}">
+		{% if on_sale %}
+			<span class="product__label--sale">{{ 'products.product.label_sale' | t }}</span>
+		{% endif %}
+        <div class="product__image">
+            <a href="{{ product.url }}">
+                <img alt="{{ product.featured_image.alt | escape }}" src="{{ product.featured_image | product_img_url:productImageSize }}" />
+				{% for image in product.images %}
+					{% if forloop.first != true %}
+						<img alt="{{ image.alt }}" src="{{ image.src | product_img_url:productImageSize }}">
+						{% break %}
+					{% endif %}
+				{% endfor %}
+            </a>
+        </div>
+        <div class="product__content">
+			<h4 class="product__name"><a href="{{ product.url }}">{{ product.title }}</a></h4>
+			<div class="product__price">
+				<span class="price">{{ product.price | money }}</span>
+				{% if on_sale %}
+					<span class="price--compare">{{ product.compare_at_price | money }}</span>
+				{% endif %}
+			</div>
+			<div class="product__action">
+				{% assign variantCount = product.variants | size %}
+				<form action="/cart/add" method="post" enctype="multipart/form-data" class="formAddToCart">
+					<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+					{% if sold_out %}
+						<button class="btn btn__add-to-cart btnAddToCart disabled" type="submit" value="Submit" disabled>
+							<span>{{ 'products.product.sold_out' | t }}</span>
+						</button>
+					{% else %}
+						{% if variantCount > 1 %}
+							<a class="btn btn__add-to-cart btnAddToCart" href="{{ product.url }}" title="{{ 'products.product.select_options' | t }}">
+								{{ 'products.product.select_options' | t }}
+							</a>
+						{% else %}
+							<button class="btn btn__add-to-cart btnAddToCart" type="submit" value="Submit">
+								<span>{{ 'products.product.add_to_cart' | t }}</span>
+							</button>
+						{% endif %}
+					{% endif %}
+				</form>
+			</div>
+        </div>
+		<div class="product__footer">
+			{% if settings.product_reviews_enable %}
+				<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+			{% endif %}
+			{% include 'product-wishlist' %}
+		</div>
+    </div>

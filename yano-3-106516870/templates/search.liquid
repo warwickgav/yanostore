@@ -1,0 +1,36 @@
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+<section id="pageContent">
+	<div class="container">
+		<div class="velaSearchContainer">
+			{% paginate search.results by 10 %}
+			{% if search.performed %}
+				{% if search.results_count == 0 %}
+					<h1 class="velaSearchTitle">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+				{% else %}
+					<h1 class="velaSearchTitle">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h1>
+				{% endif %}
+			{% else %}
+				<h1 class="velaSearchTitle">{{ 'general.search.title' | t }}</h1>
+			{% endif %}
+			{% include 'vela-searchpage' %}
+			{% if search.performed %}
+				<div class="proList grid">
+					{% for item in search.results %}
+						{% include 'product-grid-item' %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if paginate.pages > 1 %}
+				<div id="searchPagination">
+					{% include 'vela-pagination' %}
+				</div>
+			{% endif %}
+			{% endpaginate %}
+		</div>
+	</div>
+</section>
+{% else %}
+	{% include 'respond' %}
+	{% layout none %}
+	{% endunless %}

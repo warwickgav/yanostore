@@ -1,0 +1,44 @@
+{% if settings.mainmenu_enable %}
+	<div class="site__navigation">
+		<nav class="navigation__main">
+			<ol class="nav nav--inline">
+				{% for link in linklists.main-menu.links %}
+					{% comment %}
+					Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+					More info on dropdowns:
+					- http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+					{% endcomment %}
+					{% assign child_list_handle = link.title | handleize %}
+					{% if linklists[child_list_handle].links != blank %}
+						<li class="nav__item nav__item-{{ link.handle }} nav--has-dropdown{% unless template == 'index' %}{% if link.active %} nav--active{% endif %}{% endunless %}" aria-haspopup="true">
+							<a href="{{ link.url }}">
+								{{ link.title }}
+								<span class="fa fa-caret-down" aria-hidden="true"></span>
+							</a>
+							<ol class="nav__dropdown">
+								{% for childlink in linklists[child_list_handle].links %}
+									<li{% if childlink.active %} class="nav--active"{% endif %}>
+										<a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+									</li>
+								{% endfor %}
+							</ol>
+						</li>
+					{% else %}
+						<li class="nav__item nav__item-{{ link.handle }}{% unless template == 'index' %}{% if link.active %} nav--active{% endif %}{% endunless %}">
+							{% if link.handle != 'home' %}
+								<a href="{{ link.url }}">
+									{{ link.title }}
+								</a>
+							{% else %}
+								<a href="{{ link.url }}" class="nav__link--icon">
+									<span class="fa fa-home" aria-hidden="true"></span>
+								</a>
+							{% endif %}
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ol>
+		</nav>
+	</div>
+{% endif %}

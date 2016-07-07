@@ -1,0 +1,74 @@
+{% if settings.feature_block_one_enable || settings.feature_block_two_enable  %}
+	<section class="section section__featured">
+		<div class="container bleed">
+			<div class="group">
+				{% if settings.feature_block_one_enable %}
+					<div class="column one-half-lg">
+						<div class="feature__banner">
+							<picture class="feature__image">
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
+								<source srcset="{{ 'feature_block_one_image_large.jpg' | asset_url }}" media="(min-width: 48em)">
+								<source srcset="{{ 'feature_block_one_image_small.jpg' | asset_url }}" media="(min-width: 30em)">
+								<!--[if IE 9]></video><![endif]-->
+								<img srcset="{{ 'feature_block_one_image_medium.jpg' | asset_url }}" alt="{{ settings.feature_block_one_title }}">
+							</picture>
+							{% if settings.feature_block_one_title != blank or settings.feature_block_one_text != blank %}
+								<div class="feature__content">
+									{% if settings.feature_block_one_title != blank %}
+										<h2 class="title feature__title">
+											<a href="{{ settings.feature_block_one_link }}">{{ settings.feature_block_one_title }}</a>
+										</h2>
+									{% endif %}
+									{% if settings.feature_block_one_text != blank %}
+										<p class="feature__text">
+											<a href="{{ settings.feature_block_one_link }}">{{ settings.feature_block_one_text }}</a></p>
+									{% endif %}
+									{% if settings.feature_button_one_text %}
+										<div class="btn__container">
+											<a class="btn btn__action--ghost btn--hero" href="{{ settings.feature_block_one_link }}">{{ settings.feature_button_one_text }}</a>
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+							<div class="overlay"></div>
+
+						</div>
+					</div>
+				{% endif %}
+				{% if settings.feature_block_two_enable %}
+					<div class="column one-half-lg">
+						<div class="feature__banner">
+							<picture class="feature__image">
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
+								<source srcset="{{ 'feature_block_two_image_large.jpg' | asset_url }}" media="(min-width: 48em)">
+								<source srcset="{{ 'feature_block_two_image_small.jpg' | asset_url }}" media="(min-width: 30em)">
+								<!--[if IE 9]></video><![endif]-->
+								<img srcset="{{ 'feature_block_two_image_medium.jpg' | asset_url }}" alt="{{ settings.feature_block_two_title }}">
+							</picture>
+							{% if settings.feature_block_two_title != blank or settings.feature_block_two_text != blank %}
+								<div class="feature__content">
+									{% if settings.feature_block_two_title != blank %}
+										<h2 class="title feature__title">
+											<a href="{{ settings.feature_block_two_link }}">{{ settings.feature_block_two_title }}</a>
+										</h2>
+									{% endif %}
+									{% if settings.feature_block_two_text != blank %}
+										<p class="feature__text">
+											<a href="{{ settings.feature_block_two_link }}">{{ settings.feature_block_two_text }}</a></p>
+									{% endif %}
+									{% if settings.feature_button_two_text %}
+										<div class="btn__container">
+											<a class="btn btn__action--ghost btn--hero" href="{{ settings.feature_block_two_link }}">{{ settings.feature_button_two_text }}</a>
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+							<div class="overlay"></div>
+
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

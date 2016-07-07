@@ -1,0 +1,46 @@
+<div class="BannerHome">
+	<div class="row">
+		{% if settings.banner_image5_enable %}
+		<div class="col-xs-12 col-sm-6">
+			<div class="boxBanner">
+				<div class="boxBannerImage">
+					<a href="{{ settings.banner_image5_link }}" title="">
+						<img class="img-responsive" alt="{{ settings.banner_image5_title }}" src="{{ 'banner_image5.jpg' | asset_url }}">
+					</a>
+				</div>
+				{% if settings.banner_image5_title != blank or settings.banner_image5_text != blank %}
+					<div class="boxBannerText">
+					{% if settings.banner_image5_title != blank %}
+						<h4 class="boxBannerTitle"><a href="{{ settings.banner_image5_link }}" title="{{ settings.banner_image5_title }}">{{ settings.banner_image5_title }}</a></h4>
+					{% endif %}
+					{% if settings.banner_image5_text != blank %}
+						<a class="boxBannerlink" href="{{ settings.banner_image5_link }}" title="{{ settings.banner_image5_text }}">{{ settings.banner_image5_text }}</a>
+					{% endif %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endif %}
+		{% if settings.banner_image6_enable %}
+		<div class="col-xs-12 col-sm-6">
+			<div class="boxBanner">
+				<div class="boxBannerImage">
+					<a href="{{ settings.banner_image6_link }}" title="">
+						<img class="img-responsive" alt="{{ settings.banner_image6_title }}" src="{{ 'banner_image6.jpg' | asset_url }}">
+					</a>
+				</div>
+				{% if settings.banner_image6_title != blank or settings.banner_image6_text != blank %}
+					<div class="boxBannerText">
+					{% if settings.banner_image6_title != blank %}
+						<h4 class="boxBannerTitle"><a href="{{ settings.banner_image6_link }}" title="{{ settings.banner_image6_title }}">{{ settings.banner_image6_title }}</a></h4>
+					{% endif %}
+					{% if settings.banner_image6_text != blank %}
+						<a class="boxBannerlink" href="{{ settings.banner_image6_link }}" title="{{ settings.banner_image6_text }}">{{ settings.banner_image6_text }}</a>
+					{% endif %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</div>

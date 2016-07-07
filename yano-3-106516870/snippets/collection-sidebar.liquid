@@ -1,0 +1,12 @@
+{% include 'vela-sidebar-categories' %}
+{% include 'vela-sidebar-organization' %}
+{% include 'vela-sidebar-ajaxfilter' %}
+{% if settings.sidebar_banner_enable %}
+    <div class="velaBannerSidebar">
+        <div class="velaContent">
+            {% assign bannerLink = settings.sidebar_banner_link %}
+            {% assign bannerImage = 'sidebar_banner.jpg' %}
+            {% include 'vela-banner' %}
+        </div>
+    </div>
+{% endif %}

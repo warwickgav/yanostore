@@ -1,0 +1,44 @@
+{% assign number_of_comments = article.comments_count %}
+{% if comment and comment.created_at %}
+	{% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+{% include 'breadcrumb' %}
+<section id="pageContent">
+	<div class="container">
+		<div class="row">
+			<aside class="velaSidebar col-xs-12 col-sm-4 col-md-4">
+				{% include 'vela-blog-sidebar' %}
+			</aside>
+			<div class="col-xs-12 col-sm-8 col-md-8">
+				<article class="articleItem" itemscope itemtype="http://schema.org/Article">
+					<header class="articleHeader">
+						<h1 class="velaArticleTitle">{{ article.title }}</h1>
+						{% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
+						{% capture date %}
+						<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+						<p class="articleMeta">{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
+					</header>
+					<div class="rte" itemprop="articleBody">
+						{{ article.content }}
+					</div>
+					{% include 'vela-article-tags' %}
+					{% if blog.next_article or blog.previous_article %}
+						<div class="articleButton clearfix">
+							{% if blog.previous_article %}
+								<span class="pull-left">
+                                    {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+                                </span>
+							{% endif %}
+							{% if blog.next_article %}
+								<span class="pull-right">
+                                    {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }}
+                                </span>
+							{% endif %}
+						</div>
+					{% endif %}
+					{% include 'vela-article-comment' %}
+				</article>
+			</div>
+		</div>
+	</div>
+</section>

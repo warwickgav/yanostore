@@ -1,0 +1,25 @@
+<div class="velaTopLinks">
+	<div class="topLinksTitle">
+		<span>{{ settings.topbar_toplinks_title }}</span>
+	</div>
+	<ul class="list-inline list-unstyled">
+		{% if shop.customer_accounts_optional or shop.customer_accounts_enabled %}
+			{% capture fullname %}{{ customer.first_name }} {{ customer.last_name }}{% endcapture %}
+			{% assign login_html = 'header.topbar.login_html' | t:fullname:fullname %}
+			{% assign logout = 'header.topbar.logout' | t %}
+			{% assign login = 'header.topbar.login' | t %}
+			{% assign register = 'header.topbar.register' | t %}
+			{% if customer  %}
+				<li><a class="account" rel="nofollow" href="/account">{{ login_html }}</a></li>
+				<li>{{ logout | customer_logout_link }}</li>
+			{% else %}
+				<li>{{ login | customer_login_link }}</li>
+				<li>{{ register | customer_register_link }}</li>
+			{% endif %}
+		{% endif %}
+		{% assign topbarMenu = settings.topbar_toplinks %}
+		{% for itemMenu in linklists[topbarMenu].links %}
+			<li><a href="{{ itemMenu.url }}" title="">{{ itemMenu.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>

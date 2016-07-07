@@ -1,0 +1,10 @@
+<div class="site__cart">
+	<a href="/cart" class="jsDrawerOpenRight btn btn__cart">
+		<!-- <span class="cartitle"> {{ 'layout.cart.title' | t }}</span> -->
+		<i class="icon icon-cart--white"><img src="{{ 'cart-icon--white.svg' | asset_url }}" width="36" height="36"></i>
+		<span id="CartCount">{{ cart.item_count }}</span>
+		<span class="item">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+		<!-- <span id="CartCost">{{ cart.total_price | money }}</span> -->
+	</a>
+</div>
+

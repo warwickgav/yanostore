@@ -1,0 +1,99 @@
+<footer id="footer" class="footer site__footer">
+	{% if settings.newsletter_enable %}
+		<section class="section section--brand section__newsletter">
+			<div class="container">
+				{% include 'newsletter' %}
+			</div>
+		</section>
+	{% endif %}
+	<div class="footer--mid">
+		<div class="container">
+			{% if settings.footer_social_enable %}
+				<div class="footer__social">
+					{% include 'social' %}
+				</div>
+			{% endif %}
+			<div class="footer__menu">
+				<div class="group">
+					{% if settings.footer_column_one_title != blank %}
+						<div class="column one-third-lg">
+							<div class="footer__menu--column">
+								<h4 class="title">{{ settings.footer_column_one_title }}</h4>
+								<ul class="list">
+									{% for link in linklists[settings.footer_column_one_menu].links %}
+										<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+
+					{% endif %}
+					{% if settings.footer_column_two_title != blank %}
+						<div class="column one-third-lg">
+							<div class="footer__menu--column">
+								<h4 class="title">{{ settings.footer_column_two_title }}</h4>
+								<ul class="list">
+									{% for link in linklists[settings.footer_column_two_menu].links %}
+										<li>
+											<a href="{{ link.url }}">{{ link.title }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					{% endif %}
+					{% if settings.footer_column_three_title != blank %}
+						<div class="footer__menu--column">
+							<h4 class="title">{{ settings.footer_column_three_title }}</h4>
+							<ul class="list">
+								{% for link in linklists[settings.footer_column_three_links_menu].links %}
+									<li>
+										<a href="{{ link.url }}">{{ link.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if settings.footer_myaccount_enable %}
+						<div class="column one-third-lg">
+							<div class="footer__menu--column">
+								<h4 class="title">{{ settings.footer_myaccount_title }}</h4>
+								{% if shop.customer_accounts_enabled %}
+									<ul class="list">
+										{% if customer %}
+											<li>
+												<a href="/account">My Account</a>
+											</li>
+											{% if settings.enable_wishlist %}
+												<li>
+													<a href="/pages/wish-list" title="My Wishlist">My Wishlist</a>
+												</li>
+											{% endif %}
+											<li>
+												{{ 'Logout' | customer_logout_link }}
+											</li>
+										{% else %}
+											<li>
+												{{ 'Login' | customer_login_link }}
+											</li>
+											{% if shop.customer_accounts_optional %}
+												<li>
+													{{ 'Create an account' | customer_register_link }}
+												</li>
+											{% endif %}
+										{% endif %}
+									</ul>
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer--bottom">
+		<div class="container">
+			<p class="footer-copyright">{{ 'layout.footer.copyright_html' | t }}</p>
+		</div>
+	</div>
+</footer>

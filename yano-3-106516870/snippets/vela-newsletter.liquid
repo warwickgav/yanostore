@@ -1,0 +1,42 @@
+{% if settings.vela_newsletter_enable %}
+    <div id="vela-newsletter" class="velaBlock">
+        {% if settings.vela_newsletter_titile != blank %}
+        <h4 class="velaTitle">{{ settings.vela_newsletter_titile }}</h4>
+        {% endif %}
+        <div class="velaContent">
+            {% if settings.vela_newsletter_description != blank %}
+                <div class="newsletterDescription">{{ settings.vela_newsletter_description }}</div>
+            {% endif %}
+            {% if settings.vela_newsletter_mailchimp %}
+                {% assign form_action = settings.newsletter_form_action %}
+                <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="formNewsletter clearfix">
+                    <div class="input-group">
+                        <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="form-control" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                        <span class="input-group-btn btnNewsletter">
+                            <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                        </span>
+                    </div>
+                </form>
+            {% else %}
+                {% form 'customer' %}
+          			{% if form.posted_successfully? %}
+                    <script type="text/javascript">
+                      	$(document).ready(function() {
+                            $('#newsletterAlert').modal();
+                        });
+            		</script>
+          			{% endif %}
+                    <div class="formNewsletter">
+                        <div class="input-group">
+                            <input class="form-control" id="newsletter-input" type="text" name="contact[email]" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                            <span class="input-group-btn btnNewsletter">
+                                <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                            </span>
+                            <input type="hidden" name="action" value="0">
+                        </div>
+                    </div>
+                {% endform %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %} 

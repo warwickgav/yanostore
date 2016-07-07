@@ -1,0 +1,47 @@
+{% assign megaStyle = 'velamenu_item_style' | append:intMega %}
+{% assign megaProductsTitle = 'velamenu_product_title' | append:intMega %}
+{% assign megaProductsCollection = 'velamenu_product_collection' | append:intMega %}
+{% assign megaHtmlTitle = 'velamenu_html_title' | append:intMega %}
+{% assign megaHtmlContent = 'velamenu_html_content' | append:intMega %}
+{% if settings[megaStyle] == 'megamenu1' %}
+	<li class="hasMenuDropdown hasMegaMenu{% if velaLink.active %} active{% endif %}">
+		<a href="{{ velaLink.url }}" title="">{{ velaLink.title }}</a>
+		<div class="menuDropdown megaMenu">
+			<div class="menuGroup row">
+				{% include 'vela-megamenu-menu' with 'col-sm-3' %}
+			</div>
+		</div>
+	</li>
+{% elsif settings[megaStyle] == 'megamenu2' %}
+	<li class="hasMenuDropdown hasMegaMenu{% if velaLink.active %} active{% endif %}">
+		<a href="{{ velaLink.url }}" title="">{{ velaLink.title }}</a>
+		<div class="menuDropdown megaMenu">
+			<div class="menuGroup row">
+				<div class="col-xs-12 col-sm-9">
+					<div class="row noGutter">
+						{% include 'vela-megamenu-menu' with 'col-sm-4' %}
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					{% include 'vela-megamenu-product' %}
+				</div>
+			</div>
+		</div>
+	</li>
+{% else %}
+	<li class="hasMenuDropdown hasMegaMenu{% if velaLink.active %} active{% endif %}">
+		<a href="{{ velaLink.url }}" title="">{{ velaLink.title }}</a>
+		<div class="menuDropdown megaMenu">
+			<div class="menuGroup row">
+				<div class="col-xs-12 col-sm-9">
+					<div class="row noGutter">
+						{% include 'vela-megamenu-menu' with 'col-sm-4' %}
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					{% include 'vela-megamenu-html' %}
+				</div>
+			</div>
+		</div>
+	</li>
+{% endif %}

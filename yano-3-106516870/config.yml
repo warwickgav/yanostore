@@ -1,0 +1,14 @@
+---
+:api_key: cc1fb62222d6b7f5563a108886ab7572
+:password: 4ba95e7aeabb0587300acc61d8440a78
+:store: yano-3.myshopify.com
+:theme_id: 
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/
+:ignore_files:
+- assets/*.scss

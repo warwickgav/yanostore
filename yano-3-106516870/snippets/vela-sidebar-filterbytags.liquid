@@ -1,0 +1,20 @@
+{% if collection.all_tags.size > 0 %}
+    <div class="velaFilter">
+        <h3 class="titleSidebar">{{ settings.sidebar_filtertag_title }}</h3>
+        <div class="velaContent">
+            <ul class="listSidebar list-unstyled">
+                {% for tag in collection.all_tags %}
+                    {% if current_tags contains tag %}
+                        <li class="filterActive">
+                            {{ tag | link_to_remove_tag: tag }}
+                        </li>
+                    {% else %}
+                        <li>
+                            {{ tag | link_to_tag: tag }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

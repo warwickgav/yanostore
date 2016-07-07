@@ -1,0 +1,45 @@
+
+
+<header class="velaHeader{% if settings.header_float_enable %} headerFixed{% endif %}">
+    <div class="headerWrap">
+        <!--<div id="topbar">
+            <div class="container">
+                {% include 'vela-toplinks' %}
+            </div>
+        </div>-->
+        <div id="velaHeaderMain">
+            <div class="container">
+                <div class="headerContent">
+                    <div class="row nomargin">
+                        <div class="velaHeaderLeft col-xs-12 col-sm-4 col-md-4 nopadding">
+
+                        </div>
+                        <div class="velaHeaderCenter col-xs-12 col-sm-4 col-md-4 nopadding">
+                            {% if template == 'index' %}
+                                <div class="velaLogo" itemscope itemtype="http://schema.org/Organization">
+                            {% else %}
+                                <div class="velaLogo" itemscope itemtype="http://schema.org/Organization">
+                            {% endif %}
+                            {% if settings.logo_use_image %}
+                                <a href="/" itemprop="url" class="velaLogoLink">
+                                    <img class="img-responsive" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+                                </a>
+                            {% else %}
+                                <a href="/" itemprop="url">{{ shop.name }}</a>
+                            {% endif %}
+                            {% if template != 'index' %}
+                                </div>
+                            {% else %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+
+        </div>
+    </div>
+</header>

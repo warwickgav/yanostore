@@ -1,0 +1,15 @@
+{% for velaLink1 in linklists[linkHandle].links %}
+	{% assign linkHandle = velaLink1.title | handleize %}
+	<div class="col-xs-12 {{ vela-megamenu-menu }}">
+		<ul class="velaMenuLinks">
+			<li class="menuTitle{% if velaLink1.active %} active{% endif %}">
+				<a href="{{ velaLink1.url }}" title="">{{ velaLink1.title }}</a>
+			</li>
+			{% for velaLink2 in linklists[linkHandle].links %}
+				<li class="{% if velaLink2.active %}active{% endif %}">
+					<a href="{{ velaLink2.url }}" title="">{{ velaLink2.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endfor %}

@@ -1,0 +1,42 @@
+<nav class="menubar">
+	<ul class="nav nav--inline">
+		<li>
+			<a class="jsDrawerOpenLeft">
+				<img class="nav__icon" src="{{ 'menu-icon--white.svg' | asset_url }}" width="40" height="40">
+				<span class="nav__tip">Menu</span>
+			</a>
+		</li>
+		<li>
+			<a href="/account">
+				<img class="nav__icon" src="{{ 'account-icon--white.svg' | asset_url }}" width="40" height="40">
+				<span class="nav__tip">Account</span>
+			</a>
+		</li>
+		<li class="logomark">
+			<a href="/" itemprop="url">
+				{% if settings.logomark_enable %}
+					<img  src="{{ 'logomark.png' | asset_url }}" alt="{{ shop.name }}" width="40" height="40">
+				{% endif %}
+			</a>
+		</li>
+		<li>
+			<a id="js-searchToggle">
+				<img class="nav__icon" src="{{ 'search-icon--white.svg' | asset_url }}" width="40" height="40">
+				<span class="nav__tip">Search</span>
+			</a>
+		</li>
+		<li>
+			<a href="/cart" class="jsDrawerOpenRight">
+				<img class="nav__icon" src="{{ 'cart-icon--white.svg' | asset_url }}" width="40" height="40">
+				<span class="nav__tip">Cart</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+<script type="text/javascript">
+	$(document).ready( function(){
+		$("#js-searchToggle").click( function(){
+			$('body').removeClass('jsDrawerOpen, jsDrawerOpenLeft, jsDrawerOpenRight').addClass('search-open');
+		});
+	});
+</script>

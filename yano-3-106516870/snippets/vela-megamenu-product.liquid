@@ -1,0 +1,30 @@
+<div class="velaMenuProducts">
+	<div class="menuTitle">{{ settings[megaProductsTitle] }}</div>
+	<div class="listProduct">
+		{% assign collectionTitle = settings[megaProductsCollection] %}
+		{% for product in collections[collectionTitle].products %}
+			{% assign onSale = false %}
+			{% if product.compare_at_price > product.price %}
+			    {% assign onSale = true %}
+			{% endif %}
+			<div class="blockProMenu">
+				<div class="proImage proImageMenu">
+					<a class="proImageLink" href="{{ product.url }}" title="">
+						<img class="img-responsive" src="{{ product.featured_image | product_img_url: imagesize }}" alt="{{ product.featured_image.alt }}">
+					</a>
+				</div>
+				<div class="proMeta proMetaMenu">
+					<h5 class="proName">
+						<a href="{{ product.url }}" title="">{{ product.title }}</a>
+					</h5>
+					<div class="boxProPrice">
+						{% if onSale %}
+	               			<span class="oldPrice proPrice">{{ product.compare_at_price | money }}</span>
+		                {% endif %}
+		                <span class="curPrice proPrice">{{ product.price | money }}</span>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

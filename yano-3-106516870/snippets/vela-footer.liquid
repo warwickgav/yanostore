@@ -1,0 +1,68 @@
+<footer id="footer" class="site-footer">
+	{% if settings.vela_newsletter_enable %}
+	<div class="footer-top footer-newsletter">
+		<div class="container">
+			{% include 'vela-newsletter' %}
+		</div>
+	</div>
+	{% endif %}
+	<div class="footer-mid">
+		<div class="container footer-social">
+			{% if settings.vela_social_enable %}
+				{% include 'vela-social' %}
+			{% endif %}
+		</div>
+		<div class="container footer-menu">
+			<div class="row">
+			{% if settings.footer_column_1_title != blank %}
+				<div class="footer-column col-xs-12 col-sm-4">
+					<h4>{{ settings.footer_column_1_title }}</h4>
+					<ul class="list">
+						{% for link in linklists[settings.footer_column_1_links_list].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+			{% if settings.footer_column_2_title != blank %}
+				<div class="footer-column col-xs-12 col-sm-4">
+					<h4>{{ settings.footer_column_2_title }}</h4>
+					<ul class="list">
+						{% for link in linklists[settings.footer_column_2_links_list].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+			{% if settings.footer_myaccount_enable %}
+				<div class="footer-column col-xs-12 col-sm-4">
+					<h4>My Account</h4>
+					{% if shop.customer_accounts_enabled %}
+						<ul class="list">
+							{% if customer %}
+								<li><a href="/account">My Account</a></li>
+								{% if settings.enable_wishlist %}
+									<li><a href="/pages/wish-list" title="My Wishlist">My Wishlist</a></li>
+								{% endif %}
+								<li>
+									{{ 'Logout' | customer_logout_link }}
+								</li>
+							{% else %}
+								<li>{{ 'Login' | customer_login_link }}</li>
+								{% if shop.customer_accounts_optional %}
+									<li>{{ 'Create an account' | customer_register_link }}</li>
+								{% endif %}
+							{% endif %}
+						</ul>
+					{% endif %}
+				</div>
+			{% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<p class="footer-copyright">{{ 'layout.footer.copyright_html' | t }}</p>
+		</div>
+	</div>
+</footer>

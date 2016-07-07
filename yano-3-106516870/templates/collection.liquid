@@ -1,0 +1,48 @@
+{% include 'breadcrumb' %}
+
+{% if settings.collection_product_limit != blank %}
+	{% assign product_per_page = settings.collection_product_limit %}
+{% else %}
+	{% assign product_per_page = 8 %}
+{% endif %}
+
+{% assign product_grid = settings.collection_product_columns %}
+
+<div class="product__listing">
+	<div class="page__header collection__header"{% if collection.image %} style="background-image: url('{{ collection.image | collection_img_url: 'master' }}')"{% endif %}>
+		<div class="container">
+			<h1 class="page__title">{{ collection.title }}</h1>
+			{% if collection.description != blank %}
+				<div class="page__content collection__content">
+					{{ collection.description }}
+				</div>
+			{% endif %}
+		</div>
+		<div class="collection__tools">
+			<div class="container">
+				{% include 'collection-sorting' %}
+			</div>
+		</div>
+	</div>
+	<div class="page__content">
+		{% paginate collection.products by product_per_page %}
+		<div class="container">
+			<ul id="listCollection" class="group product__collection product__grid">
+				{% for product in collection.products %}
+					<li class="column one-half{% if product_grid == 4 %} one-fourth-lg{% else if product_grid == 3 %} one-third-lg{% endif %}">
+						{% include 'product-grid-item' %}
+					</li>
+				{% else %}
+					<li>{{ 'collections.general.no_matches' | t }}</li>
+				{% endfor %}
+			</ul>
+			{% if paginate.pages > 1 %}
+				<div id="pagination">
+					{% include 'pagination' %}
+				</div>
+			{% endif %}
+		</div>
+		{% endpaginate %}
+		{% include 'collection-sidebar' %}
+	</div>
+</div>

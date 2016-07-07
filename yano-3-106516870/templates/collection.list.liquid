@@ -1,0 +1,41 @@
+{% include 'breadcrumb' %}
+
+{% if settings.collection_product_limit != blank %}
+	{% assign product_per_page = settings.collection_product_limit %}
+{% else %}
+	{% assign product_per_page = 8 %}
+{% endif %}
+
+<div class="product__listing">
+	<div class="page__header collection__header"{% if collection.image %} style="background-image: url('{{ collection.image | collection_img_url: 'master' }}')"{% endif %}>
+		<div class="container">
+			<h1 class="page__title">{{ collection.title }}</h1>
+			{% if collection.description != blank %}
+				<div class="page__content collection__content">
+					{{ collection.description }}
+				</div>
+			{% endif %}
+		</div>
+		<div class="collection__tools">
+			<div class="container">
+				{% include 'collection-sorting' %}
+			</div>
+		</div>
+	</div>
+	<div class="page__content">
+		{% paginate collection.products by product_per_page %}
+		<ul id="listCollection" class="product__collection product__list">
+			{% for product in collection.products %}
+				<li>{% include 'product-list-item' %}</li>
+			{% else %}
+				<li>{{ 'collections.general.no_matches' | t }}</li>
+			{% endfor %}
+		</ul>
+		{% if paginate.pages > 1 %}
+			<div id="pagination">
+				{% include 'pagination' %}
+			</div>
+		{% endif %}
+		{% endpaginate %}
+	</div>
+</div>

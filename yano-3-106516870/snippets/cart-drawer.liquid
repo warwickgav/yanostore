@@ -1,0 +1,11 @@
+{% if settings.ajax_cart_method == "drawer" %}
+	<div id="cartDrawer" class="drawer drawerRight">
+		<div class="velaCartTitle">
+			<span>{{ 'cart.general.title' | t }}</span>
+			<div class="close jsDrawerClose">
+				<span>&times;</span>
+			</div>
+		</div>
+		<div id="cartContainer"></div>
+	</div>
+{% endif %}

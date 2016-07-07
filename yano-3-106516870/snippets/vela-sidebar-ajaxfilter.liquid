@@ -1,0 +1,92 @@
+{% if settings.sidebar_filtercustag_enable %}
+	{% if current_tags == blank %}
+		{% assign noFilter = true %}
+	{% else %}
+		{% assign noFilter = false %} 
+	{% endif %}
+    <div id="sidebarAjaxFilter" class="velaFilter">
+        <h3 class="titleSidebar">
+        	<span>{{ settings.sidebar_filtercustag_title }}</span>
+        	<a href="javascript:void(0)" class="velaClearAll{% if noFilter %} hidden{% endif %}">{{ 'collections.sidebar.clear_all' | t }}</a>
+    	</h3>
+        <div class="velaContent">
+            {% if settings.sidebar_filtercustag1_enable %}
+                <div class="ajaxFilter">
+                	<h4 class="ajaxFilterTitle">
+                		<span>{{ settings.sidebar_filtercustag1_title }}</span>
+                		<a href="javascript:void(0)" class="velaClear" style="display:none;">{{ 'collections.sidebar.clear' | t }}</a>
+                	</h4>
+                	<ul class="listFilter list-unstyled">
+                		{% assign cusTags = settings.sidebar_filtercustag1_list | split: ',' %}
+                		{% for item in cusTags %}
+    				      	{% assign item = item | strip %}
+    				      	{% assign itemHandleize = item | handleize %}      
+    				      	{% if current_tags contains item %}
+    					      	<li class="active" data-filter="{{ itemHandleize }}">
+    						        {{ item | link_to_remove_tag: item }}
+    					      	</li>
+    				      	{% else %}
+    					        {% if collection.tags contains item %} 
+    					          	<li data-filter="{{ itemHandleize }}">
+    					          		{{ item | link_to_add_tag: item }}
+    					          	</li>
+    					        {% endif %}
+    				      	{% endif %}
+    			      	{% endfor %}
+                	</ul>
+                </div>
+            {% endif %}
+            {% if settings.sidebar_filtercustag2_enable %}
+                <div class="ajaxFilter">
+                	<h4 class="ajaxFilterTitle">
+                		<span>{{ settings.sidebar_filtercustag2_title }}</span>
+                		<a href="javascript:void(0)" class="velaClear" style="display:none;">{{ 'collections.sidebar.clear' | t }}</a>
+                	</h4>
+                	<ul class="listFilter list-unstyled">
+                		{% assign cusTags = settings.sidebar_filtercustag2_list | split: ',' %}
+                		{% for item in cusTags %}
+    				      	{% assign item = item | strip %}
+    				      	{% assign itemHandleize = item | handleize %}     
+    				      	{% if current_tags contains item %}
+    					      	<li class="active" data-filter="{{ itemHandleize }}">
+    						        {{ item | link_to_remove_tag: item }}
+    					      	</li>
+    				      	{% else %}
+    					        {% if collection.tags contains item %} 
+    					          	<li data-filter="{{ itemHandleize }}">
+    					          		{{ item | link_to_add_tag: item }}
+    					          	</li>
+    					        {% endif %}
+    				      	{% endif %}
+    			      	{% endfor %}
+                	</ul>
+                </div>
+            {% endif %}
+            {% if settings.sidebar_filtercustag3_enable %}
+                <div class="ajaxFilter">
+                	<h4 class="ajaxFilterTitle">
+                		<span>{{ settings.sidebar_filtercustag3_title }}</span>
+                		<a href="javascript:void(0)" class="velaClear" style="display:none;">{{ 'collections.sidebar.clear' | t }}</a>
+                	</h4>
+                	<ul class="listFilter listFilterColor list-unstyled">
+                		{% for i in (1..18) %}
+                			{% assign setColorName = 'sidebar_filtercustag3_text_' | append: i %}
+                			{% assign colorImage = 'color-' | append: i | append: '.png' %}
+                			{% if settings[setColorName] != blank %}
+            			    	{% assign colorName = settings[setColorName] | strip %}
+            			    	{% if collection.tags contains colorName %}
+            			    		{% assign itemHandleize = colorName | handleize %}
+    		            			<li {% if current_tags contains colorName %}class="active"{% endif %} data-filter="{{ itemHandleize }}">
+    		            				<a href="javascript:void(0)">
+    						                <img class="img-responsive" src="{{ colorImage | asset_url }}" alt="{{ colorName }}"/><span>{{ colorName }}</span> 
+    					              	</a>
+    		            			</li>
+    	            			{% endif %}
+                			{% endif %}
+                		{% endfor %}
+                	</ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

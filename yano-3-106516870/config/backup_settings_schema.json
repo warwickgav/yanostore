@@ -1,0 +1,3252 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0070\/7032\/files\/2010_6_23_Shopify-Green_256x256.jpg",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Vela Framework"
+      },
+      {
+        "type": "paragraph",
+        "content": "v1.0.0"
+      },
+      {
+        "type": "paragraph",
+        "content": "Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/docs.shopify.com\/themes\/theme-templates\/settings) to learn more about how you can make the theme customizable."
+      }
+    ]
+  },
+  {
+    "name": "1. Vela Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "vela_color_primary",
+        "label": "Color Primary",
+        "default": "#333333",
+        "info": "Used for text links, background title, title color."
+      },
+      {
+        "type": "color",
+        "id": "vela_color_secondary",
+        "label": "Color Secondary",
+        "default": "#999999"
+      },
+      {
+        "type": "color",
+        "id": "vela_color_tertiary",
+        "label": "Color Tertiary",
+        "default": "#dcdcdc"
+      },
+      {
+        "type": "color",
+        "id": "vela_color_borders",
+        "label": "Borders Color",
+        "default": "#e5e5e5"
+      },
+      {
+        "type": "color",
+        "id": "vela_color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Text Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color_primary",
+        "label": "Text Color Primary",
+        "default": "#666666",
+        "info": "Text color for body"
+      },
+      {
+        "type": "color",
+        "id": "text_color_secondary",
+        "label": "Text Color Secondary",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "text_color_tertiary",
+        "label": "Text Color Tertiary",
+        "default": "#999999"
+      },
+      {
+        "type": "header",
+        "content": "Vela Button One"
+      },
+      {
+        "type": "color",
+        "id": "button_one_bgcolor",
+        "label": "Background Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "button_one_bordercolor",
+        "label": "Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "button_one_txtcolor",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "button_one_bgcolor_hover",
+        "label": "Hover Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "button_one_bordercolor_hover",
+        "label": "Hover Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "button_one_txtcolor_hover",
+        "label": "Hover Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "header",
+        "content": "Vela Button Product"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_bgcolor",
+        "label": "Background Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_bordercolor",
+        "label": "Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_txtcolor",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_bgcolor_hover",
+        "label": "Hover Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_bordercolor_hover",
+        "label": "Hover Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "btnpro_txtcolor_hover",
+        "label": "Hover Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "header",
+        "content": "Vela Button Addtocart"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_bgcolor",
+        "label": "Background Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_bordercolor",
+        "label": "Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_txtcolor",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_bgcolor_hover",
+        "label": "Hover Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_bordercolor_hover",
+        "label": "Hover Border Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "addtocart_txtcolor_hover",
+        "label": "Hover Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "header",
+        "content": "Vela Layout"
+      },
+      {
+        "type": "color",
+        "id": "vela_topbar_bgcolor",
+        "label": "Topbar Background Color",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "vela_header_bgcolor",
+        "label": "Header Background Color",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "vela_footercenter_bgcolor",
+        "label": "Footer Center Background Color",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "vela_footercopy_bgcolor",
+        "label": "Footer Copyright Background Color",
+        "default": "#ebebeb"
+      }
+    ]
+  },
+  {
+    "name": "2. Vela Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Family",
+        "info": "Font Family for Body"
+      },
+      {
+        "type": "radio",
+        "id": "vela_fontfamily_style",
+        "label": "Fonts Style",
+        "options": [
+          {
+            "value": "upload_fonts",
+            "label": "Custom Fonts"
+          },
+          {
+            "value": "google_fonts",
+            "label": "Google Fonts"
+          }
+        ],
+        "info": "[Where do I find Google Fonts?](http:\/\/www.google.com\/fonts)",
+        "default": "google_fonts"
+      },
+      {
+        "type": "text",
+        "id": "vela_fontfamily",
+        "label": "Fonts Name",
+        "default": "Arial"
+      },
+      {
+        "type": "header",
+        "content": "Font Family Secondary",
+        "info": "Font Family for Menu"
+      },
+      {
+        "type": "radio",
+        "id": "vela_fontfamily_secondary_style",
+        "label": "Fonts Style",
+        "options": [
+          {
+            "value": "upload_fonts",
+            "label": "Custom Fonts"
+          },
+          {
+            "value": "google_fonts",
+            "label": "Google Fonts"
+          }
+        ],
+        "info": "[Where do I find Google Fonts?](http:\/\/www.google.com\/fonts)",
+        "default": "google_fonts"
+      },
+      {
+        "type": "text",
+        "id": "vela_fontfamily_secondary",
+        "label": "Fonts Name",
+        "default": "Arial"
+      },
+      {
+        "type": "header",
+        "content": "Font Family Tertiary",
+        "info": "Font Family for Slideshow"
+      },
+      {
+        "type": "radio",
+        "id": "vela_fontfamily_tertiary_style",
+        "label": "Fonts Style",
+        "options": [
+          {
+            "value": "upload_fonts",
+            "label": "Custom Fonts"
+          },
+          {
+            "value": "google_fonts",
+            "label": "Google Fonts"
+          }
+        ],
+        "info": "[Where do I find Google Fonts?](http:\/\/www.google.com\/fonts)",
+        "default": "google_fonts"
+      },
+      {
+        "type": "text",
+        "id": "vela_fontfamily_tertiary",
+        "label": "Fonts Name",
+        "default": "Arial"
+      },
+      {
+        "type": "header",
+        "content": "Font Size"
+      },
+      {
+        "type": "text",
+        "id": "vela_fontsize",
+        "label": "Font Size",
+        "info": "Font size for Body",
+        "default": "14px"
+      }
+    ]
+  },
+  {
+    "name": "3. Vela Features",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Reviews"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_reviews_enable",
+        "label": "Enable Product Reviews?",
+        "info": "[View Product Review settings](\/admin\/apps\/product-reviews\/settings)"
+      },
+      {
+        "type": "header",
+        "content": "Product Quickview",
+        "info": "Quickview will disable on Mobile, Tablet"
+      },
+      {
+        "type": "checkbox",
+        "id": "quickview_enable",
+        "label": "Enable Quickview?"
+      },
+      {
+        "type": "checkbox",
+        "id": "quickview_swatch_enable",
+        "label": "Enable Swatch Variants?",
+        "info": "You can enable or disable swatch variants for Quickview"
+      },
+      {
+        "type": "header",
+        "content": "Product Wishlist"
+      },
+      {
+        "type": "checkbox",
+        "id": "wishlist_enable",
+        "label": "Enable Wishlist?"
+      },
+      {
+        "type": "page",
+        "id": "wishlist_page",
+        "label": "Template Wishlist",
+        "info": "You must Create new page wishlist with template page.wishlist"
+      }
+    ]
+  },
+  {
+    "name": "4. Vela Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_float_enable",
+        "label": "Enable Float Header",
+        "info": "You can active float header or not."
+      },
+      {
+        "type": "header",
+        "content": "Topbar"
+      },
+      {
+        "type": "text",
+        "id": "topbar_toplinks_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "link_list",
+        "id": "topbar_toplinks",
+        "label": "Topbar Menu"
+      },
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_use_image",
+        "label": "Use custom logo"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom logo",
+        "max-width": 450,
+        "max-height": 200,
+        "info": "Maximum logo dimensions are 450px wide by 200px high. The uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Max logo width",
+        "default": "450px",
+        "info": "Defined in pixels."
+      },
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_enable",
+        "label": "Use Custom Icon"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "16 x 16px png",
+        "max-width": 16,
+        "max-height": 16
+      }
+    ]
+  },
+  {
+    "name": "5. Vela Megamenu",
+    "settings": [
+      {
+        "type": "header",
+        "content": "SETTINGS"
+      },
+      {
+        "type": "checkbox",
+        "id": "velamenu_enable",
+        "label": "Enable Megamenu?",
+        "info": "Acitve Vela Menu"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_bgcolor",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_linkcolor",
+        "label": "Menu Link Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_linkcolor_hover",
+        "label": "Menu Link Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_dropdown_bgcolor",
+        "label": "Background Color Dropdown",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_dropdown_linkcolor",
+        "label": "Dropdown Menu Link Color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "velamenu_dropdown_linkcolor_hover",
+        "label": "Dropdown Menu Link Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_fontsize",
+        "label": "Menu Fontsize",
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_dropdown_fontsize",
+        "label": "Dropdown Fontsize",
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_menumobile_title",
+        "label": "Menu Mobile Title",
+        "placeholder": "Menu Mobile Title",
+        "default": "Menu Mobile"
+      },
+      {
+        "type": "header",
+        "content": "1st MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item1",
+        "label": "1st Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style1",
+        "label": "1st Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "1st block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title1",
+        "label": "1st Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection1",
+        "label": "1st Collection"
+      },
+      {
+        "type": "header",
+        "content": "1st block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title1",
+        "label": "1st Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content1",
+        "label": "1st Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      },
+      {
+        "type": "header",
+        "content": "2nd MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item2",
+        "label": "2nd Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style2",
+        "label": "2nd Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "2nd block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title2",
+        "label": "2nd Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection2",
+        "label": "2nd Collection"
+      },
+      {
+        "type": "header",
+        "content": "2nd block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title2",
+        "label": "2nd Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content2",
+        "label": "2nd Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      },
+      {
+        "type": "header",
+        "content": "3rd MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item3",
+        "label": "3rd Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style3",
+        "label": "3rd Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "3rd block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title3",
+        "label": "3rd Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection3",
+        "label": "3rd Collection"
+      },
+      {
+        "type": "header",
+        "content": "3rd block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title3",
+        "label": "3rd Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content3",
+        "label": "3rd Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      },
+      {
+        "type": "header",
+        "content": "4th MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item4",
+        "label": "4th Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style4",
+        "label": "4th Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "4th block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title4",
+        "label": "4th Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection4",
+        "label": "4th Collection"
+      },
+      {
+        "type": "header",
+        "content": "4th block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title4",
+        "label": "4th Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content4",
+        "label": "4th Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      },
+      {
+        "type": "header",
+        "content": "5th MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item5",
+        "label": "5th Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style5",
+        "label": "5th Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "5th block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title5",
+        "label": "5th Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection5",
+        "label": "5th Collection"
+      },
+      {
+        "type": "header",
+        "content": "5th block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title5",
+        "label": "5th Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content5",
+        "label": "5th Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      },
+      {
+        "type": "header",
+        "content": "6th MEGAMENU"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_item6",
+        "label": "6th Menu Item",
+        "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+      },
+      {
+        "type": "select",
+        "id": "velamenu_item_style6",
+        "label": "6th Dropdown Mega Style",
+        "options": [
+          {
+            "value": "megamenu1",
+            "label": "Style 1 (Only use menu)"
+          },
+          {
+            "value": "megamenu2",
+            "label": "Style 2 (block products)"
+          },
+          {
+            "value": "megamenu3",
+            "label": "Style 3 (block html)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "6th block products",
+        "info": "Use for Style 2"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_product_title6",
+        "label": "6th Block Title"
+      },
+      {
+        "type": "collection",
+        "id": "velamenu_product_collection6",
+        "label": "6th Collection"
+      },
+      {
+        "type": "header",
+        "content": "6th block html",
+        "info": "Use for Style 3"
+      },
+      {
+        "type": "text",
+        "id": "velamenu_html_title6",
+        "label": "6th Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "velamenu_html_content6",
+        "label": "6th Content HTML",
+        "info": "You can input HTML code, img tag, video code, ..."
+      }
+    ]
+  },
+  {
+    "name": "6. Breadcrumb background",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Default background Breadcrumb"
+      },
+      {
+        "type": "image",
+        "id": "bg_breadcrub.jpg",
+        "label": "Input background default for Breadcrumb"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_breadcrub_parallax",
+        "label": "Enable background parallax"
+      },
+      {
+        "type": "header",
+        "content": "Page Collection & Product"
+      },
+      {
+        "type": "image",
+        "id": "bg_product.jpg",
+        "label": "Input background for collection and Product"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_product_parallax",
+        "label": "Enable background parallax"
+      },
+      {
+        "type": "header",
+        "content": "Page Blog & acticle"
+      },
+      {
+        "type": "image",
+        "id": "bg_blog.jpg",
+        "label": "Input background for Blog and Acticle"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_blog_parallax",
+        "label": "Enable background parallax"
+      },
+      {
+        "type": "header",
+        "content": "Page Contact"
+      },
+      {
+        "type": "image",
+        "id": "bg_contact.jpg",
+        "label": "Input background Contact"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_contact_parallax",
+        "label": "Enable background parallax"
+      },
+      {
+        "type": "header",
+        "content": "Page About"
+      },
+      {
+        "type": "image",
+        "id": "bg_about.jpg",
+        "label": "Input background About"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_about_parallax",
+        "label": "Enable background parallax"
+      }
+    ]
+  },
+  {
+    "name": "7. Vela Slideshow",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "velaslides_enable",
+        "label": "Enable Slideshow?"
+      },
+      {
+        "type": "select",
+        "id": "velaslides_transition",
+        "label": "Slideshow Transition",
+        "options": [
+          {
+            "value": "random",
+            "label": "Random"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "velaslides_animspeed",
+        "label": "Animation Speed",
+        "default": "500",
+        "info": "Sliding effect in milliseconds"
+      },
+      {
+        "type": "text",
+        "id": "velaslides_pausetime",
+        "label": "Pause Time",
+        "default": "8000",
+        "info": "Milliseconds between the end of the sliding effect and the start of the next one"
+      },
+      {
+        "type": "text",
+        "id": "velaslides_captiontop",
+        "label": "Caption Position Top",
+        "placeholder": "20%",
+        "default": "20%",
+        "info": "Caption margin top"
+      },
+      {
+        "type": "header",
+        "content": "1st Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image1_enable",
+        "label": "1st Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow1.jpg",
+        "label": "1st Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image1_link",
+        "label": "1st Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image1_align",
+        "label": "1st Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image1_effect",
+        "label": "1st Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image1_hcolor",
+        "label": "1st Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image1_tcolor",
+        "label": "1st Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image1_heading",
+        "label": "1st Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image1_text",
+        "label": "1st Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image1_btntxt",
+        "label": "1st Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image1_btnlink",
+        "label": "1st Button Link"
+      },
+      {
+        "type": "header",
+        "content": "2nd Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image2_enable",
+        "label": "2nd Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow2.jpg",
+        "label": "2nd Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image2_link",
+        "label": "2nd Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image2_align",
+        "label": "2nd Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image2_effect",
+        "label": "2nd Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image2_hcolor",
+        "label": "2nd Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image2_tcolor",
+        "label": "2nd Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image2_heading",
+        "label": "2nd Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image2_text",
+        "label": "2nd Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image2_btntxt",
+        "label": "2nd Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image2_btnlink",
+        "label": "2nd Button Link"
+      },
+      {
+        "type": "header",
+        "content": "3rd Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image3_enable",
+        "label": "3rd Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow3.jpg",
+        "label": "3rd Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image3_link",
+        "label": "3rd Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image3_align",
+        "label": "3rd Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image3_effect",
+        "label": "3rd Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image3_hcolor",
+        "label": "3rd Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image3_tcolor",
+        "label": "3rd Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image3_heading",
+        "label": "3rd Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image3_text",
+        "label": "3rd Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image3_btntxt",
+        "label": "3rd Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image3_btnlink",
+        "label": "3rd Button Link"
+      },
+      {
+        "type": "header",
+        "content": "4th Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image4_enable",
+        "label": "4th Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow4.jpg",
+        "label": "4th Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image4_link",
+        "label": "4th Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image4_align",
+        "label": "4th Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image4_effect",
+        "label": "4th Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image4_hcolor",
+        "label": "4th Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image4_tcolor",
+        "label": "4th Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image4_heading",
+        "label": "4th Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image4_text",
+        "label": "4th Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image4_btntxt",
+        "label": "4th Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image4_btnlink",
+        "label": "4th Button Link"
+      },
+      {
+        "type": "header",
+        "content": "5th Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image5_enable",
+        "label": "5th Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow5.jpg",
+        "label": "5th Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image5_link",
+        "label": "5th Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image5_align",
+        "label": "5th Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image5_effect",
+        "label": "5th Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image5_hcolor",
+        "label": "5th Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image5_tcolor",
+        "label": "5th Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image5_heading",
+        "label": "5th Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image5_text",
+        "label": "5th Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image5_btntxt",
+        "label": "5th Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image5_btnlink",
+        "label": "5th Button Link"
+      },
+      {
+        "type": "header",
+        "content": "6th Slideshow Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "slides_image6_enable",
+        "label": "6th Active Image?"
+      },
+      {
+        "type": "image",
+        "id": "slideshow6.jpg",
+        "label": "6th Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image6_link",
+        "label": "6th Link For Image"
+      },
+      {
+        "type": "select",
+        "id": "slides_image6_align",
+        "label": "6th Caption Align",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "info": "Default Value: Center"
+      },
+      {
+        "type": "select",
+        "id": "slides_image6_effect",
+        "label": "6th Caption Effect",
+        "options": [
+          {
+            "value": "leftright",
+            "label": "Left to Right"
+          },
+          {
+            "value": "rightleft",
+            "label": "Right to Left"
+          },
+          {
+            "value": "topbottom",
+            "label": "Top to Bottom"
+          },
+          {
+            "value": "bottomtop",
+            "label": "Bottom to Top"
+          }
+        ],
+        "default": "leftright",
+        "info": "Default Value: Left to Right"
+      },
+      {
+        "type": "color",
+        "id": "slides_image6_hcolor",
+        "label": "6th Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slides_image6_tcolor",
+        "label": "6th Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "slides_image6_heading",
+        "label": "6th Heading For Image"
+      },
+      {
+        "type": "textarea",
+        "id": "slides_image6_text",
+        "label": "6th Text For Image"
+      },
+      {
+        "type": "text",
+        "id": "slides_image6_btntxt",
+        "label": "6th Button Text"
+      },
+      {
+        "type": "text",
+        "id": "slides_image6_btnlink",
+        "label": "6th Button Link"
+      }
+    ]
+  },
+  {
+    "name": "8. Vela Homepage",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hero Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_block_enable",
+        "label": "Enable Banner ?"
+      },
+      {
+        "type": "image",
+        "id": "hero_block_image_small.jpg",
+        "label": "Banner Image (Small)"
+      },
+      {
+        "type": "image",
+        "id": "hero_block_image_medium.jpg",
+        "label": "Banner Image (Medium)"
+      },
+      {
+        "type": "image",
+        "id": "hero_block_image_large.jpg",
+        "label": "Banner Image (Large)"
+      },
+      {
+        "type": "text",
+        "id": "hero_block_title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "color",
+        "id": "hero_block_title_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "hero_block_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "color",
+        "id": "hero_block_text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "hero_block_link",
+        "label": "Banner Link",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Feature Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_block_one_enable",
+        "label": "Enable Banner ?"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_one_image_small.jpg",
+        "label": "Banner Image (Small)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_one_image_medium.jpg",
+        "label": "Banner Image (Medium)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_one_image_large.jpg",
+        "label": "Banner Image (Large) "
+      },
+      {
+        "type": "text",
+        "id": "feature_block_one_title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_one_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_one_link",
+        "label": "Banner Link",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Feature Banner 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_block_two_enable",
+        "label": "Enable Banner ?"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_two_image_small.jpg",
+        "label": "Banner Image (Small)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_two_image_medium.jpg",
+        "label": "Banner Image (Medium)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_two_image_large.jpg",
+        "label": "Banner Image (Large)"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_two_title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_two_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_two_link",
+        "label": "Banner Link",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Featured Banner 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_block_three_enable",
+        "label": "Enable Banner ?"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_three_image_small.jpg",
+        "label": "Banner Image (Small)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_three_image_medium.jpg",
+        "label": "Banner Image (Medium)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_three_image_large.jpg",
+        "label": "Banner Image (Large)"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_three_title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_three_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_three_link",
+        "label": "Banner Link",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Featured Banner 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "feature_block_four_enable",
+        "label": "Enable Banner ?"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_four_image_small.jpg",
+        "label": "Banner Image (Small)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_four_image_medium.jpg",
+        "label": "Banner Image (Medium)"
+      },
+      {
+        "type": "image",
+        "id": "feature_block_four_image_large.jpg",
+        "label": "Banner Image (Large)"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_four_title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_four_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "feature_block_four_link",
+        "label": "Banner Link",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Product Tabs"
+      },
+      {
+        "type": "checkbox",
+        "id": "producttab_enable",
+        "label": "Enable Product Tabs?"
+      },
+      {
+        "type": "checkbox",
+        "id": "producttab_auto",
+        "label": "Auto Play Carousel?"
+      },
+      {
+        "type": "text",
+        "id": "producttab_row",
+        "label": "Product Rows",
+        "placeholder": "Example: 1",
+        "default": "1"
+      },
+      {
+        "type": "text",
+        "id": "producttab_col",
+        "label": "Product Columns",
+        "placeholder": "Example: 4",
+        "default": "4"
+      },
+      {
+        "type": "text",
+        "id": "producttab_limit",
+        "label": "Product Limit",
+        "placeholder": "Example: 8",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "producttab_title1",
+        "label": "1st Tab Title"
+      },
+      {
+        "type": "collection",
+        "id": "producttab_collection1",
+        "label": "1st Tab Collection"
+      },
+      {
+        "type": "text",
+        "id": "producttab_title2",
+        "label": "2nd Tab Title"
+      },
+      {
+        "type": "collection",
+        "id": "producttab_collection2",
+        "label": "2nd Tab Collection"
+      },
+      {
+        "type": "text",
+        "id": "producttab_title3",
+        "label": "3rd Tab Title"
+      },
+      {
+        "type": "collection",
+        "id": "producttab_collection3",
+        "label": "3rd Tab Collection"
+      },
+      {
+        "type": "header",
+        "content": "Block Blogs Homepage"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_enable",
+        "label": "Enable Blogs Homepage?"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_autoplay",
+        "label": "Auto Play Carousel?"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_image",
+        "label": "Show Featured Image?"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_creatdate",
+        "label": "Show Creat Date?"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_desc",
+        "label": "Show Blog Description?"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_homepage_readmore",
+        "label": "Show Read More?"
+      },
+      {
+        "type": "text",
+        "id": "blog_homepage_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "blog",
+        "id": "blog_homepage_blogs",
+        "label": "Blog",
+        "info": "Choose blog to display on Homepage"
+      },
+      {
+        "type": "text",
+        "id": "blog_homepage_column",
+        "placeholder": "Ex: 4",
+        "label": "Item Columns",
+        "info": "Number of Article column"
+      },
+      {
+        "type": "text",
+        "id": "blog_homepage_limit",
+        "placeholder": "Ex: 8",
+        "label": "Item Limit",
+        "info": "Number of Article limited"
+      }
+    ]
+  },
+  {
+    "name": "9. Vela Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo Footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "footerlogo_enable",
+        "label": "1st Enable Logo Footer?"
+      },
+      {
+        "type": "image",
+        "id": "footerlogo.png",
+        "label": "Logo Footer",
+        "info": "Format image .png"
+      },
+      {
+        "type": "text",
+        "id": "footerlogo_link",
+        "label": "Links footerlogo",
+        "default": "#"
+      },
+      {
+        "type": "header",
+        "content": "Vela Social"
+      },
+      {
+        "type": "checkbox",
+        "id": "vela_social_enable",
+        "label": "Enable Vela Social?"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title",
+        "info": "Title for Block"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_facebook",
+        "placeholder": "Link your Facebook",
+        "label": "Facebook Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_twitter",
+        "placeholder": "Link your Twitter",
+        "label": "Twitter Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_instagram",
+        "placeholder": "Link your Instagram",
+        "label": "Instagram Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_pinterest",
+        "placeholder": "Link your Pinterest",
+        "label": "Pinterest Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_youtube",
+        "placeholder": "Link your Youtube",
+        "label": "Youtube Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_googleplus",
+        "placeholder": "Link your Googleplus",
+        "label": "Googleplus Link"
+      },
+      {
+        "type": "text",
+        "id": "vela_social_rss",
+        "placeholder": "Link your Rss",
+        "label": "Rss Link"
+      },
+      {
+        "type": "header",
+        "content": "Footer Column"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_myaccount_enable",
+        "label": "Show My Account links"
+      },
+      {
+        "type": "text",
+        "id": "footer_column_1_title",
+        "label": "Footer Column 1 Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_column_1_links_list",
+        "label": "Show footer menu"
+      },
+      {
+        "type": "text",
+        "id": "footer_column_2_title",
+        "label": "Footer Column 2 Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_column_2_links_list",
+        "label": "Show footer menu"
+      }
+    ]
+  },
+  {
+    "name": "10. Vela Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sidebar Categories"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_categories_enable",
+        "label": "Enable Sidebar Categories?"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_categories_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "link_list",
+        "id": "sidebar_categories_menu",
+        "label": "Menu",
+        "info": "Choose menu for block. Add new menu: Admin->Navigation->Menu"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar Filter By Vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtervendor_enable",
+        "label": "Enable Filter By Vendor?"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtervendor_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "sidebar_filtervendor_list",
+        "placeholder": "Vendor1,Vendor2",
+        "label": "Vendors List",
+        "info": "Separate by a comma \",\""
+      },
+      {
+        "type": "header",
+        "content": "Sidebar Filter By Type"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtertype_enable",
+        "label": "Enable Filter By Type?"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtertype_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "sidebar_filtertype_list",
+        "placeholder": "Product Type,Product Vendor2",
+        "label": "Product Types List",
+        "info": "Separate by a comma \",\""
+      },
+      {
+        "type": "header",
+        "content": "SIDEBAR CUSTOMIZE TAGS"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtercustag_enable",
+        "label": "Enable Customize Tags?"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtercustag_multi",
+        "label": "Enable Multiple choices?",
+        "info": "User can select multiple (Size, price, color) or only one (Size, price, color)"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "header",
+        "content": "Filter by Tags 1",
+        "info": "Located in the block CUSTOMIZE TAGS"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtercustag1_enable",
+        "label": "Enable Filter by Tags 1"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag1_title",
+        "placeholder": "Title for Block",
+        "label": "Filter by Tags 1 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "sidebar_filtercustag1_list",
+        "placeholder": "Size 1,Size 2",
+        "label": "Product Tags List 1",
+        "info": "Separate by a comma \",\""
+      },
+      {
+        "type": "header",
+        "content": "Filter by Tags 2",
+        "info": "Located in the block CUSTOMIZE TAGS"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtercustag2_enable",
+        "label": "Enable Filter by Tags 2"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag2_title",
+        "placeholder": "Title for Block",
+        "label": "Filter by Tags 2 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "sidebar_filtercustag2_list",
+        "placeholder": "Price 1,Price 2",
+        "label": "Product Tags List 2",
+        "info": "Separate by a comma \",\""
+      },
+      {
+        "type": "header",
+        "content": "Filter by Tags 3 (Color)",
+        "info": "Located in the block CUSTOMIZE TAGS"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_filtercustag3_enable",
+        "label": "Enable Filter by Tags 3"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_title",
+        "placeholder": "Title for Block",
+        "label": "Filter by Tags 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_1",
+        "label": "Filter by Color Text 1",
+        "default": "Black",
+        "placeholder": "Color name. Ex: \"White\"",
+        "info": "Ex: \"Red\"."
+      },
+      {
+        "type": "image",
+        "id": "color-1.png",
+        "label": "Filter by Color Image 1",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_2",
+        "label": "Filter by Color Text 2",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-2.png",
+        "label": "Filter by Color Image 2",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_3",
+        "label": "Filter by Color Text 3",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-3.png",
+        "label": "Filter by Color Image 3",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_4",
+        "label": "Filter by Color Text 4",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-4.png",
+        "label": "Filter by Color Image 4",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_5",
+        "label": "Filter by Color Text 5",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-5.png",
+        "label": "Filter by Color Image 5",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_6",
+        "label": "Filter by Color Text 6",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-6.png",
+        "label": "Filter by Color Image 6",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_7",
+        "label": "Filter by Color Text 7",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-7.png",
+        "label": "Filter by Color Image 7",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_8",
+        "label": "Filter by Color Text 8",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-8.png",
+        "label": "Filter by Color Image 8",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_9",
+        "label": "Filter by Color Text 2",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-9.png",
+        "label": "Filter by Color Image 9",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "text",
+        "id": "sidebar_filtercustag3_text_10",
+        "label": "Filter by Color Text 10",
+        "placeholder": "Color name. Ex: \"White\""
+      },
+      {
+        "type": "image",
+        "id": "color-10.png",
+        "label": "Filter by Color Image 10",
+        "max-width": 200,
+        "max-height": 200
+      },
+      {
+        "type": "header",
+        "content": "Sidebar Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_banner_enable",
+        "label": "Enable Banner Sidebar?"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_banner_link",
+        "placeholder": "Input link for banner",
+        "label": "Banner Link"
+      },
+      {
+        "type": "image",
+        "id": "sidebar_banner.jpg",
+        "label": "Banner Image"
+      }
+    ]
+  },
+  {
+    "name": "11. Vela Collection Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_image",
+        "label": "Use Collection Image?"
+      },
+      {
+        "type": "text",
+        "id": "collection_product_columns",
+        "label": "Number of products in a row",
+        "placeholder": "Example: 4",
+        "default": "4"
+      },
+      {
+        "type": "text",
+        "id": "collection_product_page",
+        "label": "Number of products in a Page",
+        "placeholder": "Example: 12",
+        "default": "12"
+      }
+    ]
+  },
+  {
+    "name": "12. Vela Product Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_swatch_enable",
+        "label": "Use Variants Swatch?"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_previewnext_enable",
+        "label": "Display Prev\/Next Product?"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_available_enable",
+        "label": "Display Product Available?"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_type_enable",
+        "label": "Display Product Type?"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_vendor_enable",
+        "label": "Display Product Vendor?"
+      },
+      {
+        "type": "header",
+        "content": "Product Short Description"
+      },
+      {
+        "type": "radio",
+        "id": "product_short_description",
+        "label": "Display Product Short Description?",
+        "options": [
+          {
+            "value": "no",
+            "label": "Don't show"
+          },
+          {
+            "value": "yes",
+            "label": "Show short description"
+          },
+          {
+            "value": "full",
+            "label": "Show full description"
+          }
+        ],
+        "default": "yes"
+      },
+      {
+        "type": "header",
+        "content": "Product More Info"
+      },
+      {
+        "type": "radio",
+        "id": "product_tab_type",
+        "label": "Product More Info Type",
+        "options": [
+          {
+            "value": "disable",
+            "label": "Don't Show"
+          },
+          {
+            "value": "protab",
+            "label": "Tab More Info"
+          },
+          {
+            "value": "propanel",
+            "label": "Panel More Info"
+          }
+        ],
+        "default": "protab"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_tab1_enable",
+        "label": "1st Enable Tab?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_tab1_title",
+        "label": "1st Title Tab",
+        "default": "Details"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_tab2_enable",
+        "label": "2nd Enable Tab?"
+      },
+      {
+        "type": "text",
+        "id": "product_tab2_title",
+        "label": "2nd Title Tab"
+      },
+      {
+        "type": "textarea",
+        "id": "product_tab2_content",
+        "label": "2nd Tab Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_tab3_enable",
+        "label": "3rd Enable Tab?"
+      },
+      {
+        "type": "text",
+        "id": "product_tab3_title",
+        "label": "3rd Title Tab"
+      },
+      {
+        "type": "textarea",
+        "id": "product_tab3_content",
+        "label": "3rd Tab Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_tab4_enable",
+        "label": "4th Enable Tab?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_tab4_title",
+        "label": "4th Title Tab",
+        "default": "Reviews"
+      },
+      {
+        "type": "header",
+        "content": "Product Social Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_enable",
+        "label": "Enable Social Sharing?"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_facebook_enable",
+        "label": "Facebook Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_twitter_enable",
+        "label": "Twitter Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_google_enable",
+        "label": "Google Plus Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_linkedin_enable",
+        "label": "Linkedin Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_social_pinterest_enable",
+        "label": "Pinterest Sharing"
+      },
+      {
+        "type": "header",
+        "content": "Product Related"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_related_enable",
+        "label": "Enable Product Related?"
+      },
+      {
+        "type": "text",
+        "id": "product_related_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "text",
+        "id": "product_related_limit",
+        "placeholder": "Number. Ex: 8",
+        "label": "Number of Related Product"
+      }
+    ]
+  },
+  {
+    "name": "13. Vela Blog Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "header",
+        "content": "BLOG SIDEBAR"
+      },
+      {
+        "type": "header",
+        "content": "Blog Sidebar Recent Articles"
+      },
+      {
+        "type": "checkbox",
+        "id": "blogsidebar_recentarticles_enable",
+        "label": "Enable Recent Articles?"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_recentarticles_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_recentarticles_limit",
+        "placeholder": "Ex: 6",
+        "label": "Number Of Article Limit",
+        "default": "6"
+      },
+      {
+        "type": "header",
+        "content": "Blog Sidebar Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_banner_enable",
+        "label": "Enable Banner?"
+      },
+      {
+        "type": "text",
+        "id": "blog_banner_link",
+        "label": "Banner Link"
+      },
+      {
+        "type": "image",
+        "id": "blog_sidebar_banner.jpg",
+        "label": "Banner Image"
+      },
+      {
+        "type": "header",
+        "content": "Blog Sidebar Tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "blogsidebar_tags_enable",
+        "label": "Enable Tags List?"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_tags_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_tags_limit",
+        "placeholder": "Ex: 6",
+        "label": "Number Of Tags Limit",
+        "default": "10"
+      }
+    ]
+  },
+  {
+    "name": "14. Vela Contact Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Google Map"
+      },
+      {
+        "type": "checkbox",
+        "id": "googlemap_enable",
+        "label": "Enable Google Map?",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "googlemap_iframe",
+        "label": "Google Map Code",
+        "placeholder": "Embed Map"
+      },
+      {
+        "type": "header",
+        "content": "Contact Details"
+      },
+      {
+        "type": "checkbox",
+        "id": "contact_details_enable",
+        "label": "Enable Contact Details?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_details_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_details_content",
+        "placeholder": "Content for Block",
+        "label": "Block Content"
+      },
+      {
+        "type": "header",
+        "content": "Contact Working Hours"
+      },
+      {
+        "type": "checkbox",
+        "id": "contact_working_enable",
+        "label": "Enable Working Hours?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_working_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_working_content",
+        "placeholder": "Content for Block",
+        "label": "Block Content"
+      }
+    ]
+  },
+  {
+    "name": "15. Vela Cart Page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "select",
+        "id": "ajax_cart_method",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "modal",
+            "label": "Modal"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "16. Vela Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "vela_newsletter_enable",
+        "label": "Enable\/Disable"
+      },
+      {
+        "type": "text",
+        "id": "vela_newsletter_titile",
+        "placeholder": "Title for Block",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "vela_newsletter_description",
+        "placeholder": "Description for Block",
+        "label": "Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "vela_newsletter_mailchimp",
+        "label": "Use MailChimp",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Uncheck if You use Newsletter of Shopify. Email will be saved to shopify customer. Admin -> Customers -> Accepts Marketting. You must send invite account for customer."
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      }
+    ]
+  },
+  {
+    "name": "17. Vela Logo Carousel",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_enable",
+        "label": "Enable\/Disable"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_autoplay",
+        "label": "Auto Play Carousel?"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_column",
+        "placeholder": "Ex: 4",
+        "label": "Item Columns",
+        "info": "Number of Logo image column"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active1",
+        "label": "1 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image1.jpg",
+        "label": "1 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link1",
+        "placeholder": "Link for image",
+        "label": "1 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active2",
+        "label": "2 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image2.jpg",
+        "label": "2 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link2",
+        "placeholder": "Link for image",
+        "label": "2 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active3",
+        "label": "3 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image3.jpg",
+        "label": "3 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link3",
+        "placeholder": "Link for image",
+        "label": "3 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active4",
+        "label": "4 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image4.jpg",
+        "label": "4 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link4",
+        "placeholder": "Link for image",
+        "label": "4 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active5",
+        "label": "5 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image5.jpg",
+        "label": "5 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link5",
+        "placeholder": "Link for image",
+        "label": "5 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active6",
+        "label": "6 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image6.jpg",
+        "label": "6 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link6",
+        "placeholder": "Link for image",
+        "label": "6 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active7",
+        "label": "7 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image7.jpg",
+        "label": "7 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link7",
+        "placeholder": "Link for image",
+        "label": "7 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active8",
+        "label": "8 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image8.jpg",
+        "label": "8 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link8",
+        "placeholder": "Link for image",
+        "label": "8 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active9",
+        "label": "9 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image9.jpg",
+        "label": "9 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link9",
+        "placeholder": "Link for image",
+        "label": "9 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active10",
+        "label": "10 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image10.jpg",
+        "label": "10 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link10",
+        "placeholder": "Link for image",
+        "label": "10 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active11",
+        "label": "11 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image11.jpg",
+        "label": "11 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link11",
+        "placeholder": "Link for image",
+        "label": "11 Link for Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_carousel_active12",
+        "label": "12 Active Image"
+      },
+      {
+        "type": "image",
+        "id": "logo_image12.jpg",
+        "label": "12 Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_carousel_link12",
+        "placeholder": "Link for image",
+        "label": "12 Link for Image"
+      }
+    ]
+  },
+  {
+    "name": "18. Vela About Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Our Team"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_carousel_enable",
+        "label": "Enable\/Disable"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_carousel_title",
+        "placeholder": "Title for Block",
+        "label": "Block Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_carousel_autoplay",
+        "label": "Auto Play Carousel?"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_carousel_column",
+        "placeholder": "Ex: 4",
+        "label": "Item Columns",
+        "info": "Number of Logo image column"
+      },
+      {
+        "type": "header",
+        "content": "Item 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active1",
+        "label": "1 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image1.jpg",
+        "label": "1 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title1",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc1",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active2",
+        "label": "2 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image2.jpg",
+        "label": "2 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title2",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc2",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active3",
+        "label": "3 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image3.jpg",
+        "label": "3 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title3",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc3",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active4",
+        "label": "4 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image4.jpg",
+        "label": "4 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title4",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc4",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active5",
+        "label": "5 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image5.jpg",
+        "label": "5 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title5",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc5",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active6",
+        "label": "6 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image6.jpg",
+        "label": "6 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title6",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc6",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 7"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active7",
+        "label": "7 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image7.jpg",
+        "label": "7 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title7",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc7",
+        "placeholder": "Description for item",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Item 8"
+      },
+      {
+        "type": "checkbox",
+        "id": "ourteam_active8",
+        "label": "8 Enable\/Disable Item"
+      },
+      {
+        "type": "image",
+        "id": "ourteam_image8.jpg",
+        "label": "8 Image"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_title8",
+        "placeholder": "Title for item",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ourteam_desc8",
+        "placeholder": "Description for item",
+        "label": "Description"
+      }
+    ]
+  },
+  {
+    "name": "19. Twitter Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "twittercard_handle",
+        "label": "Twitter handle",
+        "info": "Example: @shopify"
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        {% comment %}<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">{% endcomment %}
+        {% if settings.favicon_enable %}
+            <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+        {% endif %}
+        <title>
+            {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+        </title>
+        {% if page_description %}
+            <meta name="description" content="{{ page_description | escape }}">
+        {% endif %}
+        {% include 'social-meta-tags' %}
+        <link rel="canonical" href="{{ canonical_url }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="{{ settings.color_primary }}">
+        {% if settings.typekit_id != blank %}
+            <script src="https://use.typekit.net/{{ settings.typekit_id }}.js"></script>
+            <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        {% endif %}
+        {% include 'head-style' %}
+        {{ content_for_header }}
+        {% include 'head-javascript' %}
+    </head>
+    <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+        {% include 'navbar' %}
+        <div id="pageContainer">
+            {% include 'header' %}
+            <main class="main main__content" role="main">
+                {{ content_for_layout }}
+            </main>
+            {% include 'footer' %}
+        </div>
+		<div class="drawer-overlay"></div>
+        {% include 'navigation-mobile' %}
+        {% include 'cart-modal' %}
+        {% include 'cart-drawer' %}
+        {% include 'cart-ajax' %}
+        {% include 'modal' %}
+        {% include 'footer-javascript' %}
+    </body>
+</html>
