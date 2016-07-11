@@ -1,16 +1,15 @@
-{% assign productImageSize = 'large' %}
+{% assign productImageSize = '1024x1024' %}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% include 'breadcrumb' %}
-
 
 <div class="product" itemscope itemtype="http://schema.org/Product">
 	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
 	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-	<div class="product__content">
+	<div class="product__content cf">
 		<div class="product__photo">
 			<div class="product__photo-main">
 				{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-				<img id="ProductPhotoImg" src="{{ featured_image | img_url: productImageSize }}" alt="{{ featured_image.alt | escape }}" data-zoom-image="{{ featured_image | img_url: '1024x1024' }}"/>
+				<img id="js-productFeaturedImage" src="{{ featured_image | img_url: productImageSize }}" alt="{{ featured_image.alt | escape }}" data-zoom-image="{{ featured_image | img_url: '1024x1024' }}"/>
 			</div>
 			{% if product.images.size > 1 %}
 				<div id="productThumbs" class="js-productThumbnails product__thumbnails">
@@ -19,7 +18,7 @@
 							{% for image in product.images %}
 								<div class="thumbnail__item">
 									<a href="javascript:void(0)" data-imageid="{{ image.id }}" data-image="{{ image.src | img_url: productImageSize }}" data-zoom-image="{{ image.src | img_url: '1024x1024' }}">
-										<img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+										<img src="{{ image.src | img_url: 'medium' }}" alt="{{ image.alt | escape }}">
 									</a>
 								</div>
 							{% endfor %}
@@ -28,52 +27,56 @@
 				</div>
 			{% endif %}
 		</div>
-		<div class="js-productDetails product__details">
+		<div class="product__details">
 			<form action="/cart/add" method="post" enctype="multipart/form-data" class="formAddToCart">
 				<h1 class="product__name" itemprop="name">{{ product.title }}</h1>
-
 				<div id="product-price" class="product__price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 					<meta itemprop="priceCurrency" content="{{ shop.currency }}">
 					<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-					{% if settings.product_available_enable %}
-						{% if product.available %}
-							<p class="product-availability instock">{{ 'products.product.available' | t }}</p>
-						{% else %}
-							<p class="product-availability outstock">{{ 'products.product.unavailable' | t }}</p>
-						{% endif %}
-					{% endif %}
 					{% if settings.product_type_enable %}
-						<p class="proAttr productType">
-							<label>{{ 'products.product.vendor' | t }}</label>: {{ product.vendor }}</p>
+						<p class="product-type">
+							{{ product.type }}
+						</p>
 					{% endif %}
 					{% if settings.product_vendor_enable %}
-						<p class="proAttr productVendor">
-							<label>{{ 'products.product.type' | t }}</label>: {{ product.type }}</p>
+						<p class="product-vendor">
+							{{ product.vendor }}
+						</p>
 					{% endif %}
-					{% if settings.product_short_description %}
-						{% if product.description != blank %}
-							<div class="proShortDescription rte" itemprop="description">
-								{{ product.description | strip_html | truncatewords: 50 }}
-							</div>
+					{% comment %}
+						{% if settings.product_short_description %}
+							{% if product.description != blank %}
+								<div class="proShortDescription rte" itemprop="description">
+									{{ product.description | strip_html | truncatewords: 50 }}
+								</div>
+							{% endif %}
 						{% endif %}
-					{% endif %}
+					{% endcomment %}
 					{% assign variantCount = product.variants | size %}
-					<div class="proPrice clearfix">
-                    <span id="ProductPrice" class="price" itemprop="price">
-                        {{ current_variant.price | money }}
-                    </span>
+					<div class="clearfix">
+						<span id="ProductPrice" class="price" itemprop="price">
+							{{ current_variant.price | money }}
+						</span>
 						{% if product.compare_at_price > product.price %}
 							<span id="ComparePrice" class="price price--compare">
                             {{ current_variant.compare_at_price | money }}
                         </span>
 						{% endif %}
 					</div>
-					<div class="proVariants clearfix">
-						<select name="id" id="productSelect">
+					{% if settings.product_available_enable %}
+						{% if product.available %}
+							<p class="product-availability in-stock">{{ 'products.product.available' | t }}</p>
+						{% else %}
+							<p class="product-availability out-of-stock">{{ 'products.product.unavailable' | t }}</p>
+						{% endif %}
+					{% endif %}
+
+					<div class="product__variant">
+						<label class="product__variant--label">Options</label>
+						<select name="id" id="ProductSelect"  class="product__variant--selector">
 							{% for variant in product.variants %}
 								{% if variant.available %}
-									<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}
-										- {{ variant.price | money_with_currency }}</option>
+									<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
 								{% else %}
 									<option disabled="disabled">
 										{{ variant.title }} - {{ 'products.product.sold_out' | t }}
@@ -81,150 +84,37 @@
 								{% endif %}
 							{% endfor %}
 						</select>
-						{% if variantCount > 1 %}
-							{% if settings.product_swatch_enable %}
-								{% for option in product.options %}
-									{% include 'vela-swatch' with option %}
-								{% endfor %}
-							{% endif %}
-						{% endif %}
-					</div>
-					<div class="proQuantity">
-						<label for="Quantity" class="qtySelector">{{ 'products.product.quantity' | t }}</label>
-						<input type="number" id="Quantity" name="quantity" value="1" min="1" class="qtySelector">
 					</div>
 
-					<button type="submit" name="add" id="AddToCart" class="js-add-to-cart btn btn__add-to-cart ">
-						{{ 'products.product.add_to_cart' | t }}
-					</button>
+					<div class="product__quantity">
+						<label for="Quantity" class="qtySelector">{{ 'products.product.quantity' | t }}</label>
+						<div class="quantity__selector">
+							<input type="number" id="Quantity" name="quantity" value="1" min="1" class="qtySelector quantity__field">
+						</div>
+					</div>
+					<div class="product__action">
+						<button type="submit" name="add" id="AddToCart" class="js-add-to-cart btn btn__action btn__add-to-cart">
+							{{ 'products.product.add_to_cart' | t }}
+						</button>
+					</div>
 					{% include 'product-wishlist' %}
 
 				</div>
 			</form>
 
-			<div class="js-tabs product__info product-tabs">
-				{% if settings.product_tab_type == 'protab' %}
-					<ul class="nav nav-tabs">
-						{% if settings.product_tab1_enable %}
-							<li><a href="#proTabs1" data-toggle="tab">{{ settings.product_tab1_title }}</a></li>
-						{% endif %}
-						{% if settings.product_tab2_enable %}
-							<li><a href="#proTabs2" data-toggle="tab">{{ settings.product_tab2_title }}</a></li>
-						{% endif %}
-						{% if settings.product_tab3_enable %}
-							<li><a href="#proTabs3" data-toggle="tab">{{ settings.product_tab3_title }}</a></li>
-						{% endif %}
-						{% if settings.product_tab4_enable %}
-							<li><a href="#proTabs4" data-toggle="tab">{{ settings.product_tab4_title }}</a></li>
-						{% endif %}
-					</ul>
-					<div class="tab-content">
-						{% if settings.product_tab1_enable %}
-							<div class="tab-pane" id="proTabs1">{{ product.description }}</div>
-						{% endif %}
-						{% if settings.product_tab2_enable %}
-							<div class="tab-pane" id="proTabs2">{{ settings.product_tab2_content }}</div>
-						{% endif %}
-						{% if settings.product_tab3_enable %}
-							<div class="tab-pane" id="proTabs3">{{ settings.product_tab3_content }}</div>
-						{% endif %}
-						{% if settings.product_tab4_enable %}
-							<div class="tab-pane" id="proTabs4">
-								{% if settings.product_reviews_enable %}
-									<div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
-								{% endif %}
-							</div>
-						{% endif %}
-					</div>
-				{% else if settings.product_tab_type == 'propanel' %}
-					<div class="panel__accordion" id="js-Accordion">
-						{% if settings.product_tab1_enable %}
-							<div class="panel first">
-								<div class="panel__heading" id="panelHeadingOne">
-									<h4 class="title">
-										<a data-toggle="collapse" data-parent="#js-Accordion" href="#panelCollapseOne">{{ settings.product_tab1_title }}</a>
-									</h4>
-								</div>
-								<div id="panelCollapseOne" class="panel-collapse collapse">
-									<div class="panel__content">{{ product.description }}</div>
-								</div>
-							</div>
-						{% endif %}
-						{% if settings.product_tab2_enable %}
-							<div class="panel">
-								<div class="panel__heading" id="panelHeadingTwo">
-									<h4 class="title">
-										<a data-toggle="collapse" data-parent="#js-Accordion" href="#panelCollapseTwo">{{ settings.product_tab2_title }}</a>
-									</h4>
-								</div>
-								<div id="panelCollapseTwo" class="panel-collapse collapse">
-									<div class="panel__content">{{ settings.product_tab2_content }}</div>
-								</div>
-							</div>
-						{% endif %}
-						{% if settings.product_tab3_enable %}
-							<div class="panel">
-								<div class="panel__heading" id="panelHeadingThree">
-									<h4 class="title">
-										<a data-toggle="collapse" data-parent="#js-Accordion" href="#panelCollapseThree">{{ settings.product_tab3_title }}</a>
-									</h4>
-								</div>
-								<div id="panelCollapseThree" class="panel-collapse collapse">
-									<div class="panel__content">{{ settings.product_tab3_content }}</div>
-								</div>
-							</div>
-						{% endif %}
-						{% if settings.product_tab4_enable %}
-							<div class="panel">
-								<div class="panel__heading" id="panelHeadingFour">
-									<h4 class="title">
-										<a data-toggle="collapse" data-parent="#js-Accordion" href="#panelCollapseFour">{{ settings.product_tab4_title }}</a>
-									</h4>
-								</div>
-								<div id="panelCollapseFour" class="panel-collapse collapse">
-									<div class="panel__content">
-										{% if settings.product_reviews_enable %}
-											<div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
-										{% endif %}
-									</div>
-								</div>
-							</div>
-						{% endif %}
-					</div>
-				{% endif %}
+			<div class="product__info">
+				<div class="content">
+					<h2 class="subtitle">Description</h2>
+					{{ product.description }}
+				</div>
 			</div>
+
 			{% include 'product-share' %}
 		</div>
 	</div>
-	<div class="block product__block product__block--related">
-		{% include 'vela-product-related' %}
-	</div>
 </div>
-<script>
-	var selectCallback = function (variant, selector) {
-		vela.productPage({
-			money_format: "{{ shop.money_format }}",
-			variant: variant,
-			selector: selector
-		});
-	};
-	$(document).ready(function () {
-		new Shopify.OptionSelectors('productSelect', {
-			product: {{ product | json }},
-			onVariantSelected: selectCallback,
-			enableHistoryState: true
-		});
-		{% if product.available and product.options.size > 1 %}
-		Shopify.linkOptionSelectors({{ product | json }});
-		{% endif %}
-		{% if product.options.size == 1 and product.options.first != 'Title' %}
-		$('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
-		{% endif %}
-		{% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-		$('.selector-wrapper').hide();
-		$('.swatch').hide();
-		{% endif %}
-		$('.proDetailInfo .nav-tabs li:first, .proDetailInfo .tab-content .tab-pane:first').addClass('active');
-		$('.js-tabs .panel.first:first .panel-collapse').addClass('in');
-	});
-</script>
+{% comment %}
+<div class="block product__block product__block--related">
+	{% include 'vela-product-related' %}
+</div>
+{% endcomment %}

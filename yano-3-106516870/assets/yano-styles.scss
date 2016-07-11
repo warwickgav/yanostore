@@ -718,6 +718,17 @@ h1, h2, h3, h4, h5, h6 {
 	:: HELPERS
 =================================== */
 
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
 /*	==================================
 
 	:: UTILITIES
@@ -964,10 +975,6 @@ img {
 	}
 }
 
-.btn__checkout {
-
-}
-
 .btn__cart {
 	background-color: $cart-button;
 	color: $cart-button-text;
@@ -1202,7 +1209,6 @@ input, textarea, select {
 	padding-top: 12px;
 }
 
-
 // Mobile Navigation
 
 .navigation__mobile {
@@ -1230,7 +1236,6 @@ input, textarea, select {
 }
 
 // Pagination
-
 
 .nav__pagination {
 	text-align: center;
@@ -1271,6 +1276,12 @@ input, textarea, select {
 		background-color: transparent;
 	}
 }
+
+/*	==================================
+	:: SOCIAL
+=================================== */
+
+
 
 /*	==================================
 	:: PRODUCTS

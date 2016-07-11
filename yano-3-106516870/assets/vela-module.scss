@@ -1663,10 +1663,10 @@ $velasubmenu-fontsize:          12px;
 		margin:15px 0px;
 	}
 }
-.velaJsQty{
+.js-quantity{
 	position:relative;
 	@include clearfix;
-	.velaQtyAdjust{
+	.js-quantityAdjust{
 		float:left;
 		font-size:20px;
 		width:36px;
@@ -1674,16 +1674,16 @@ $velasubmenu-fontsize:          12px;
 		border:2px solid $vela-border-color;;
 		background-color:white;
 		color:$vela-text-color-secondary;
-		&.velaQtyAdjustMinus{
+		&.js-quantityAdjustMinus{
 			border-right:0px;
 			border-radius: 20px 0 0 20px;
 		}
-		&.velaQtyAdjustPlus{
+		&.js-quantityAdjustPlus{
 			border-left:0px;
 			border-radius: 0 20px 20px 0;
 		}
 	}
-	.velaQtyNum{
+	.js-quantityNumber{
 		float:left;
 		height:36px;
 		width:60px;
@@ -2046,7 +2046,7 @@ $velasubmenu-fontsize:          12px;
 			display:block;
 			padding:5px 0px;
 		}
-		.velaJsQty{
+		.js-quantity{
 			@include inline-block;
 		}
 	}

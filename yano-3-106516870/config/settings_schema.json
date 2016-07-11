@@ -1019,14 +1019,14 @@
 				"id": "products_homepage_columns",
 				"label": "Product Per Row",
 				"placeholder": "Example: 4",
-				"default": "4"
+				"default": "3"
 			},
 			{
 				"type": "text",
 				"id": "products_homepage_limit",
 				"label": "Product Limit",
 				"placeholder": "Example: 8",
-				"default": "8"
+				"default": "3"
 			},
 			{
 				"type": "header",

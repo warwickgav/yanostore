@@ -2,11 +2,11 @@
 
 {% if settings.collection_product_limit != blank %}
 	{% assign product_per_page = settings.collection_product_limit %}
+	{% assign product_grid = settings.collection_product_columns %}
 {% else %}
-	{% assign product_per_page = 8 %}
+	{% assign product_per_page = 12 %}
+	{% assign product_grid = 3 %}
 {% endif %}
-
-{% assign product_grid = settings.collection_product_columns %}
 
 <div class="product__listing">
 	<div class="page__header collection__header"{% if collection.image %} style="background-image: url('{{ collection.image | collection_img_url: 'master' }}')"{% endif %}>
@@ -29,7 +29,7 @@
 		<div class="container">
 			<ul id="listCollection" class="group product__collection product__grid">
 				{% for product in collection.products %}
-					<li class="column one-half{% if product_grid == 4 %} one-fourth-lg{% else if product_grid == 3 %} one-third-lg{% endif %}">
+					<li class="column one-half{% if product_grid == '4' %} one-fourth-lg{% elsif product_grid == '3' %} one-third-lg{% endif %}">
 						{% include 'product-grid-item' %}
 					</li>
 				{% else %}

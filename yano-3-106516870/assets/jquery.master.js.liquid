@@ -307,7 +307,7 @@ var ajaxCart = (function(module, $) {
                 var itemAdd = currentQty + 1,
                     itemMinus = currentQty - 1,
                     itemQty = currentQty;
-                var source   = $("#velaJsQty").html(),
+                var source   = $("#js-quantity").html(),
                     template = Handlebars.compile(source),
                     data = {
                         id: $el.data('id'),
@@ -319,13 +319,13 @@ var ajaxCart = (function(module, $) {
                     };
                 $el.after(template(data)).remove();
             });
-            $('.velaQtyAdjust').on('click', function() {
+            $('.js-quantityAdjust').on('click', function() {
                 var $el = $(this),
                     id = $el.data('id'),
-                    $qtySelector = $el.siblings('.velaQtyNum'),
+                    $qtySelector = $el.siblings('.js-quantityNumber'),
                     qty = parseInt($qtySelector.val().replace(/\D/g, ''));
                 var qty = validateQty(qty);
-                if ($el.hasClass('velaQtyAdjustPlus')) {
+                if ($el.hasClass('js-quantityAdjustPlus')) {
                     qty += 1;
                 } else {
                     qty -= 1;
@@ -354,7 +354,7 @@ $(document).ready(function() {
         formSelector: '.formAddToCart',
         cartContainer: '#cartContainer',
         addToCartSelector: '.js-add-to-cart',
-        cartCountSelector: '#CartCount',
+        cartCountSelector: '.js-cartCount',
         cartCostSelector: '#CartCost',
         moneyFormat: {{ shop.money_format | json }}
     });

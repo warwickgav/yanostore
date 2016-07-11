@@ -133,20 +133,20 @@ vela.cacheSelectors = function () {
 	    $customerLoginForm       : $('#CustomerLoginForm'),
 	    $passwordResetSuccess    : $('#ResetSuccess'),
 	    $velaSlideShow    		 : $('#velaSlider'),
-		$productImage    	 : $('#productImage')
+		$productImage    	 : $('#js-productFeaturedImage')
   	};
 };
 vela.init = function () {
 	FastClick.attach(document.body);
 	vela.cacheSelectors();
-	vela.startTheme();
+	// vela.startTheme();
 	vela.drawersInit();
 	vela.responsiveVideos();
 	vela.loginForms();
 	vela.productThumbImage();
     vela.accordion();
     vela.wishlist();
-    vela.quickview();
+    //vela.quickview();
     vela.ajaxFilter();
 };
 vela.drawersInit = function () {
@@ -158,13 +158,7 @@ vela.drawersInit = function () {
 vela.getHash = function () {
   	return window.location.hash;
 };
-vela.startTheme = function () {
-  	$(".swatch :radio").change(function() {
-      	var t = $(this).closest(".swatch").attr("data-option-index");
-      	var n = $(this).val();
-      	$(this).closest("form").find(".single-option-selector").eq(t).val(n).trigger("change")
-    });
-};
+
 vela.productPage = function (options) {
 	var moneyFormat = options.money_format,
 		variant = options.variant,
@@ -202,13 +196,13 @@ vela.productPage = function (options) {
 	        }
 		//}
 		if (variant.available) {
-			$('.productAvailability').removeClass('outstock');
-			$('.productAvailability').addClass('instock');
+			$('.productAvailability').removeClass('out-of-stock');
+			$('.productAvailability').addClass('in-stock');
 			$('.productAvailability')
 			.html('<label>' + {{ 'products.product.availability' | t | json }} + '</label>: ' + {{'products.product.available' | t | json }});
         } else{
-        	$('.productAvailability').removeClass('instock');
-			$('.productAvailability').addClass('outstock');
+        	$('.productAvailability').removeClass('in-stock');
+			$('.productAvailability').addClass('out-of-stock');
         	$('.productAvailability').html('<label>' + {{ 'products.product.availability' | t | json }} + '</label>: ' + {{'products.product.unavailable' | t | json }});
         }
   	} else {
@@ -217,7 +211,7 @@ vela.productPage = function (options) {
 	    $quantityElements.hide();
   	}
   	if (variant && variant.featured_image) {
-        var originalImage = $(".proFeaturedImage img");
+        var originalImage = $(".product__photo-main img");
         var newImage = variant.featured_image;
         var element = originalImage[0];
         Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
@@ -294,43 +288,23 @@ vela.slideShow = function() {
 };
 vela.productImage = function(){
 	if (vela.cache.$productImage.length > 0) {
-		if (($(window).width()) >= 992){
-	    	//DESKTOP
-	    	vela.cache.$productImage.elevateZoom({
-                gallery: 'productThumbs',
-                cursor: 'pointer',
-                galleryActiveClass: 'active',
-                imageCrossfade: true,
-                scrollZoom: true,
-                onImageSwapComplete: function() {
-                    $(".zoomWrapper div").hide();
-                },
-                loadingIcon: window.loading_url
-            });
-            vela.cache.$productImage.bind("click", function(e) {
-                var ez = vela.cache.$productImage.data('elevateZoom');
-                $.fancybox(ez.getGalleryList());
-                return false;
-            });
-	    }
-	  	else if (($(window).width()) <= 991){
-	  		//TABLET, MOBILE
-	  		vela.cache.$productImage.elevateZoom({
-	  			zoomEnabled: false,
-                gallery: 'productThumbs',
-                cursor: 'pointer',
-                galleryActiveClass: 'active',
-                imageCrossfade: false,
-                scrollZoom: false,
-                onImageSwapComplete: function() {
-                    $(".zoomWrapper div").hide();
-                },
-                loadingIcon: window.loading_url
-            });
-            vela.cache.$productImage.bind("click", function(e) {
-                return false;
-            });
-	    }
+		vela.cache.$productImage.elevateZoom({
+			zoomEnabled: false,
+			gallery: 'productThumbs',
+			cursor: 'pointer',
+			galleryActiveClass: 'active',
+			imageCrossfade: false,
+			scrollZoom:false,
+			onImageSwapComplete: function() {
+				$(".zoomWrapper div").hide();
+			},
+			loadingIcon: window.loading_url
+		});
+		vela.cache.$productImage.bind("click", function(e) {
+			var ez = vela.cache.$productImage.data('elevateZoom');
+			$.fancybox(ez.getGalleryList());
+			return false;
+		});
     }
 };
 vela.productThumbImage = function(){
@@ -548,7 +522,7 @@ vela.ajaxFilter = function(){
             formSelector: '.formAddToCart',
             cartContainer: '#cartContainer',
             addToCartSelector: '.js-add-to-cart',
-            cartCountSelector: '#CartCount',
+            cartCountSelector: '.js-cartCount',
             cartCostSelector: '#CartCost',
             moneyFormat: {{ shop.money_format | json }}
         });
@@ -586,7 +560,7 @@ vela.ajaxFilter = function(){
                 $('#loading').hide();
                 ajaxFilterAddToCart();
                 vela.wishlist();
-                vela.quickview();
+                //vela.quickview();
             },
             error: function(xhr, text) {
                 $('#loading').hide();
@@ -705,332 +679,6 @@ vela.wishlist = function(){
     $(".btnRemoveWishlist").on("click", function(e) {
         e.preventDefault();
         removeFromWishlist($(this));
-    });
-};
-vela.quickview = function(){
-    var product = {};
-    var option1 = '';
-    var option2 = '';
-    Shopify.doNotTriggerClickOnThumb = false;
-    selectCallbackQuickView = function(variant, selector) {
-        var productItem = jQuery('.jsQuickview .js-productDetails'),
-            addToCart = productItem.find('.js-add-to-cart'),
-            productPrice = productItem.find('.pricePrimary'),
-            comparePrice = productItem.find('.priceCompare');
-        if (variant) {
-            if (variant.available) {
-                addToCart.removeClass('disabled').removeAttr('disabled');
-                $(addToCart).find("span").text("{{ 'products.product.add_to_cart' | t }}");
-            } else {
-                addToCart.addClass('disabled').attr('disabled', 'disabled');
-                $(addToCart).find("span").text("{{ 'products.product.sold_out' | t }}");
-            }       
-            productPrice.html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
-            if ( variant.compare_at_price > variant.price ) {
-                comparePrice
-                    .html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")).show();
-            } else {
-                comparePrice.hide();
-            }
-            {% if settings.quickview_swatch_enable %}
-                var form = jQuery('#' + selector.domIdPrefix).closest('form');
-                for (var i=0,length=variant.options.length; i<length; i++) {
-                    var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
-                    if (radioButton.size()) {
-                        radioButton.get(0).checked = true;
-                    }
-                }
-            {% endif %}
-            if (variant && variant.featured_image) {
-                var originalImage = $(".proImageQuickview");
-                var newImage = variant.featured_image;
-                var element = originalImage[0];
-                Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
-                    $('.js-productThumbnails img').each(function() {
-                        var parentThumbImg = $(this).parent();
-                        var productImage = $(this).parent().data("image");
-                        if (newImageSizedSrc.includes(productImage)) {
-                            $(this).parent().trigger('click');
-                            return false;
-                        }
-                    });
-                });
-            }
-        } else {
-            addToCart.addClass('disabled').attr('disabled', 'disabled');
-            $(addToCart).find("span").text("{{ 'products.product.sold_out' | t }}");
-        }
-    }
-    changeImageQuickView = function (img, selector) {
-        var src = $(img).attr("src");
-        src = src.replace("_compact", "");
-        $(selector).attr("src", src);
-    }
-    velaUpdateOptionsInSelector = function (t) {
-        switch (t) {
-        case 0:
-            var n = "root";
-            var r = $(".jsQuickview .single-option-selector:eq(0)");
-            break;
-        case 1:
-            var n = $(".jsQuickview .single-option-selector:eq(0)").val();
-            var r = $(".jsQuickview .single-option-selector:eq(1)");
-            break;
-        case 2:
-            var n = $(".jsQuickview .single-option-selector:eq(0)").val();
-            n += " / " + $(".jsQuickview .single-option-selector:eq(1)").val();
-            var r = $(".jsQuickview .single-option-selector:eq(2)")
-        }
-        var i = r.val();
-        r.empty();
-        var s = Shopify.optionsMapQuickview[n];
-        if(typeof s != "undefined"){
-            for (var o = 0; o < s.length; o++) {
-                var u = s[o];
-                var a = $("<option></option>").val(u).html(u);
-                r.append(a)
-            }
-        }
-        $('.jsQuickview .swatch[data-option-index="' + t + '"] .swatch-element').each(function() {
-            if ($.inArray($(this).attr("data-value"), s) !== -1) {
-                $(this).removeClass("soldout").show().find(":radio").removeAttr("disabled", "disabled");
-            } else {
-                //$(this).addClass("soldout").hide().find(":radio").removeAttr("checked").attr("disabled", "disabled")
-            }
-        });
-        if ($.inArray(i, s) !== -1) {
-            r.val(i)
-        }
-        r.trigger("change")
-    }
-    velaLinkOptionSelectors = function (t) {
-        for (var n = 0; n < t.variants.length; n++) {
-            var r = t.variants[n];
-            if (r.available) {
-                Shopify.optionsMapQuickview["root"] = Shopify.optionsMapQuickview["root"] || [];
-                Shopify.optionsMapQuickview["root"].push(r.option1);
-                Shopify.optionsMapQuickview["root"] = Shopify.uniq(Shopify.optionsMapQuickview["root"]);
-                if (t.options.length > 1) {
-                    var i = r.option1;
-                    Shopify.optionsMapQuickview[i] = Shopify.optionsMapQuickview[i] || [];
-                    Shopify.optionsMapQuickview[i].push(r.option2);
-                    Shopify.optionsMapQuickview[i] = Shopify.uniq(Shopify.optionsMapQuickview[i])
-                }
-                if (t.options.length === 3) {
-                    var i = r.option1 + " / " + r.option2;
-                    Shopify.optionsMapQuickview[i] = Shopify.optionsMapQuickview[i] || [];
-                    Shopify.optionsMapQuickview[i].push(r.option3);
-                    Shopify.optionsMapQuickview[i] = Shopify.uniq(Shopify.optionsMapQuickview[i])
-                }
-            }
-        }
-        velaUpdateOptionsInSelector(0);
-        if (t.options.length > 1)
-            velaUpdateOptionsInSelector(1);
-        if (t.options.length === 3)
-            velaUpdateOptionsInSelector(2);
-        $(".single-option-selector:eq(0)").change(function() {
-            velaUpdateOptionsInSelector(1);
-            if (t.options.length === 3)
-                velaUpdateOptionsInSelector(2);
-            return true
-        });
-        $(".single-option-selector:eq(1)").change(function() {
-            if (t.options.length === 3)
-                velaUpdateOptionsInSelector(2);
-            return true
-        });
-    }
-    loadQuickViewSlider = function (n, r) {
-        var loadingImgQuickView = $('.loadingImage');
-        var s = Shopify.resizeImage(n.featured_image, "grande");
-        loadingImgQuickView.hide();
-        if (n.images.length > 0) {
-            var o = r.find(".js-productThumbnailsQuickview .owl-carousel");
-            for (i in n.images) {
-                var u = Shopify.resizeImage(n.images[i], "grande");
-                var a = Shopify.resizeImage(n.images[i], "compact");
-                var f = '<div class="thumbnail__item"><a href="javascript:void(0)" data-imageid="' + n.id + '" data-image="' + n.images[i] + '" data-zoom-image="' + u + '" ><img src="' + a + '" alt="Produc Image" /></a></div>';
-                o.append(f)
-            }
-            o.find("a").click(function() {
-                var t = r.find(".proImageQuickview");
-                if (t.attr("src") != $(this).attr("data-image")) {
-                    t.attr("src", $(this).attr("data-image"));
-                    loadingImgQuickView.show();
-                    t.load(function(t) {
-                        $(this).unbind("load");
-                        loadingImgQuickView.hide()
-                    })
-                }
-            });
-            o.owlCarousel({
-                navigation: true,
-                items: 4,
-                itemsDesktop: [1199, 4],
-                itemsDesktopSmall: [979, 4],
-                itemsTablet: [768, 4],
-                itemsTabletSmall: [540, 4],
-                itemsMobile: [360, 4]
-            }).css("visibility", "visible")
-        } else {        
-            r.find(".jsQuickview .js-productThumbnailsQuickview").remove();
-        }
-    }
-    convertToSlug = function (e) {
-        return e.toLowerCase().replace(/[^a-z0-9 -]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-")
-    }
-    addCheckedSwatch = function (){  
-        $('.swatch .color label').on('click', function () {      
-            $('.swatch .color').each(function(){      
-                $(this).find('label').removeClass('checkedBox');
-            });
-            $(this).addClass('checkedBox');
-        });
-    }
-    quickViewVariantsSwatch = function (t, quickview) {
-        if (t.variants.length > 1) {
-            for (var r = 0; r < t.variants.length; r++) {
-                var i = t.variants[r];
-                var s = '<option value="' + i.id + '">' + i.title + "</option>";
-                quickview.find("form.formQuickview .proVariantsQuickview > select").append(s)
-            }
-            new Shopify.OptionSelectors( 'productSelectQuickview', { 
-                product: t, 
-                onVariantSelected: selectCallbackQuickView
-            });
-            if (t.options.length == 1) {
-                $("form.formQuickview .selector-wrapper:eq(0)").prepend("<label>" + t.options[0].name + "</label>")
-            }
-            quickview.find("form.formQuickview .selector-wrapper label").each(function(n, r) {
-                $(this).html(t.options[n].name)
-            })
-            {% if settings.quickview_swatch_enable %}
-                var o = window.file_url.substring(0, window.file_url.lastIndexOf("?"));
-                var u = window.asset_url.substring(0, window.asset_url.lastIndexOf("?"));
-                var a = "";
-                for (var r = 0; r < t.options.length; r++) {
-                    a += '<div class="swatch clearfix" data-option-index="' + r + '">';
-                    a += '<div class="header">' + t.options[r].name + "</div>";
-                    var f = false;
-                    if (/Color|Colour/i.test(t.options[r].name)) { f = true }
-                    var l = new Array;
-                    for (var c = 0; c < t.variants.length; c++) {
-                        var i = t.variants[c]; var h = i.options[r];
-                        var p = this.convertToSlug(h);
-                        var d = "quickview-swatch-" + r + "-" + p;
-                        if (l.indexOf(h) < 0) {
-                            a += '<div data-value="' + h + '" class="swatch-element ' + (f ? "color " : "") + p + (i.available ? " available " : " soldout ") + '">';
-                            if (f) {
-                                a += '<div class="tooltip">' + h + "</div>"
-                            }
-                            a += '<input id="' + d + '" type="radio" name="option-' + r + '" value="' + h + '" ' + (c == 0 ? " checked " : "") + (i.available ? "" : " disabled") + " />";
-                            if (f) {
-                                a += '<label class="'+ p +'" for="' + d + '" style="background-color: ' + p + "; background-image: url(" + o + p + '.png)"><img class="crossed-out" src="' + u + 'soldout.png" /><i></i></label>'
-                            }
-                            else {
-                                a += '<label class="'+ p +'" for="' + d + '">' + h + '<img class="crossed-out" src="' + u + 'soldout.png" /></label>'
-                            }
-                            a += "</div>";
-                            if (i.available) {
-                                $('.jsQuickview .swatch[data-option-index="' + r + '"] .' + p).removeClass("soldout").addClass("available").find(":radio").removeAttr("disabled")
-                            } l.push(h)
-                        }
-                    } a += "</div>"
-                }
-                quickview.find("form.formQuickview .proVariantsQuickview > select").after(a);
-                quickview.find(".swatch :radio").change(function () {
-                    var t = $(this).closest(".swatch").attr("data-option-index");
-                    var q = $(this).val();
-                    $(this).closest("form").find(".single-option-selector").eq(t).val(q).trigger("change");
-
-                });
-                addCheckedSwatch();
-            {% endif %}
-            if (t.available) {
-                Shopify.optionsMapQuickview = {};
-                velaLinkOptionSelectors(t);
-            }
-        }
-        else {
-            quickview.find("form.formQuickview .proVariantsQuickview > select").remove();
-            var v = '<input type="hidden" name="id" value="' + t.variants[0].id + '">';
-            quickview.find("form.formQuickview").append(v)
-        }
-    }
-    validateQty = function (qty) {
-        if((parseFloat(qty) == parseInt(qty)) && !isNaN(qty)) {
-
-        } else {
-            qty = 1;
-        }
-        return qty;
-    };
-    $(document).on("click", ".js-productThumbnailsQuickview li", function() {
-        changeImageQuickView($(this).find("img:first-child"), ".proImageQuickview");
-    });
-    $(document).on('click', '.quickviewClose, .quickviewOverlay', function(e){
-        $("#velaQuickView").fadeOut(500);
-        $(".jsQuickview").html("");
-        $(".jsQuickview").fadeOut(500);
-    });
-    $(document).on('click', '.btnProductQuickview', function(e){
-        $('#loading').show();
-        var producthandle = $(this).data("handle");
-        Shopify.getProduct(producthandle,function(product) {
-            var qvhtml = $("#quickviewModal").html();
-            $(".jsQuickview").html(qvhtml);
-            var quickview= $(".jsQuickview");
-            var productdes = product.description.replace(/(<([^>]+)>)/ig,"");
-            var featured_image = product.featured_image;
-            productdes = productdes.split(" ").splice(0,30).join(" ")+"...";
-            quickview.find(".proImageQuickview").attr("src",featured_image);
-            quickview.find(".pricePrimary").html(Shopify.formatMoney(product.price, window.money_format));
-            quickview.find(".js-productDetails").attr("id", "product-" + product.id);
-            quickview.find(".formQuickview").attr("id", "product-actions-" + product.id);
-            quickview.find(".formQuickview select").attr("id", "productSelectQuickview");
-            quickview.find(".js-productDetails .quickviewName").text(product.title);
-            quickview.find(".js-productDetails .quickViewVendor").append("<label>{{ 'products.product.vendor' | t }}</label>: " + product.vendor);
-            if(product.available){
-                quickview.find(".js-productDetails .quickviewAvailability").append("<label>{{ 'products.product.availability' | t }}</label>: {{'products.product.available' | t }}");
-            }else{
-                quickview.find(".js-productDetails .quickviewAvailability").append("{{ 'products.product.availability' | t }}</label>: {{'products.product.unavailable' | t }}");
-            }
-            quickview.find(".proShortDescription").text(productdes);
-            if (product.compare_at_price > product.price) {
-                quickview.find(".priceCompare").html(Shopify.formatMoney(product.compare_at_price_max, window.money_format)).show();
-            }
-            else {
-                quickview.find(".priceCompare").html("");
-            }
-            if (!product.available) {
-                quickview.find("select, input, .dec, .inc").remove();
-                quickview.find(".js-add-to-cart").text("{{ 'products.product.sold_out' | t }}").addClass("disabled").attr("disabled", "disabled");
-                $(".proQuantity").css("display", "none");
-            }
-            else {
-                quickViewVariantsSwatch(product, quickview);
-            }
-            loadQuickViewSlider(product, quickview);
-            $('#velaQuickView').fadeIn(500);
-            $('.jsQuickview').fadeIn(500);
-            $('#loading').hide();
-            $('.velaQtyAdjust').on('click', function() {
-                var $el = $(this),
-                    id = $el.data('id'),
-                    $qtySelector = $el.siblings('.velaQtyNum'),
-                    qty = parseInt($qtySelector.val().replace(/\D/g, ''));
-                var qty = validateQty(qty);
-                if ($el.hasClass('velaQtyAdjustPlus')) {
-                    qty += 1;
-                } else {
-                    qty -= 1;
-                    if (qty <= 1) qty = 1;
-                }
-                $qtySelector.val(qty);
-            });
-        });
-        return false;
     });
 };
 vela.Drawers = (function () {

@@ -15,12 +15,6 @@
         <div class="product__image">
             <a href="{{ product.url }}">
                 <img alt="{{ product.featured_image.alt | escape }}" src="{{ product.featured_image | product_img_url:productImageSize }}" />
-				{% for image in product.images %}
-					{% if forloop.first != true %}
-						<img alt="{{ image.alt }}" src="{{ image.src | product_img_url:productImageSize }}">
-						{% break %}
-					{% endif %}
-				{% endfor %}
             </a>
         </div>
         <div class="product__content">
@@ -41,11 +35,11 @@
 						</button>
 					{% else %}
 						{% if variantCount > 1 %}
-							<a class="btn btn__add-to-cart btnAddToCart" href="{{ product.url }}" title="{{ 'products.product.select_options' | t }}">
+							<a class="btn btn__add-to-cart" href="{{ product.url }}" title="{{ 'products.product.select_options' | t }}">
 								{{ 'products.product.select_options' | t }}
 							</a>
 						{% else %}
-							<button class="btn btn__add-to-cart btnAddToCart" type="submit" value="Submit">
+							<button class="js-add-to-cart btn btn__add-to-cart" type="submit" value="Submit">
 								<span>{{ 'products.product.add_to_cart' | t }}</span>
 							</button>
 						{% endif %}

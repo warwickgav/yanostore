@@ -27,6 +27,18 @@
         {% include 'head-javascript' %}
     </head>
     <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+	{% if settings.product_social_enable %}
+		{% if settings.product_social_facebook_enable %}
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+		{% endif %}
+	{% endif %}
         {% include 'navbar' %}
         <div id="pageContainer">
             {% include 'header' %}
@@ -35,12 +47,17 @@
             </main>
             {% include 'footer' %}
         </div>
-		<div class="drawer-overlay"></div>
+		<div class="drawer-overlay jsDrawerClose"></div>
         {% include 'navigation-mobile' %}
         {% include 'cart-modal' %}
         {% include 'cart-drawer' %}
         {% include 'cart-ajax' %}
         {% include 'modal' %}
+		{% if settings.product_social_enable %}
+			{% if settings.product_social_pinterest_enable %}
+				<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+			{% endif %}
+		{% endif %}
         {% include 'footer-javascript' %}
     </body>
 </html>

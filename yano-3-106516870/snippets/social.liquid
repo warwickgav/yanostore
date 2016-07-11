@@ -6,57 +6,57 @@
 		<ul class="social__links-list">
 			{% if settings.social_facebook != blank %}
 				<li class="facebook">
-					<a target="_blank" href="{{ settings.social_facebook }}" title="{{ shop.name }} on Facebook" class="btn-social" data-original-title="Facebook">
-						<i class="fa fa-facebook-square"></i>
-						<span>Facebook</span>
+					<a target="_blank" href="{{ settings.social_facebook }}" title="{{ shop.name }} on Facebook" class="social-link" data-original-title="Facebook">
+						<i class="icon facebook-icon"><img src="{{ 'facebook-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Facebook</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_twitter != blank %}
 				<li class="twitter">
-					<a target="_blank" href="{{ settings.social_twitter }}" title="{{ shop.name }} on Twitter" class="btn-social" data-original-title="Twitter">
-						<i class="fa fa-twitter-square"></i>
-						<span>Twitter</span>
+					<a target="_blank" href="{{ settings.social_twitter }}" title="{{ shop.name }} on Twitter" class="social-link" data-original-title="Twitter">
+						<i class="icon twitter-icon"><img src="{{ 'twitter-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Twitter</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_instagram != blank %}
 				<li class="instagram">
-					<a target="_blank" href="{{ settings.social_instagram }}" title="{{ shop.name }} on Instagram" class="btn-social" data-original-title="Instagram">
-						<i class="fa fa-instagram"></i>
-						<span>Instagram</span>
+					<a target="_blank" href="{{ settings.social_instagram }}" title="{{ shop.name }} on Instagram" class="social-link" data-original-title="Instagram">
+						<i class="icon instagram-icon"><img src="{{ 'instagram-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Instagram</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_pinterest != blank %}
 				<li class="pinterest">
-					<a target="_blank" href="{{ settings.social_pinterest }}" title="{{ shop.name }} on Pinterest" class="btn-social" data-original-title="Pinterest">
-						<i class="fa fa-pinterest-square"></i>
-						<span>Pinterest</span>
+					<a target="_blank" href="{{ settings.social_pinterest }}" title="{{ shop.name }} on Pinterest" class="social-link" data-original-title="Pinterest">
+						<i class="icon pinterest-icon"><img src="{{ 'pinterest-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Pinterest</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_youtube != blank %}
 				<li class="youtube">
-					<a target="_blank" href="{{ settings.social_youtube }}" title="{{ shop.name }} on Youtube" class="btn-social" data-original-title="Youtube">
-						<i class="fa fa-youtube-square"></i>
-						<span>Youtube</span>
+					<a target="_blank" href="{{ settings.social_youtube }}" title="{{ shop.name }} on Youtube" class="social-link" data-original-title="Youtube">
+						<i class="icon youtube-icon"><img src="{{ 'youtube-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Youtube</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_googleplus != blank %}
 				<li class="google-plus">
-					<a target="_blank" href="{{ settings.social_googleplus }}" title="{{ shop.name }} on Google Plus" class="btn-social" data-original-title="Google Plus">
-						<i class="fa fa-google-plus-square"></i>
-						<span>Google Plus</span>
+					<a target="_blank" href="{{ settings.social_googleplus }}" title="{{ shop.name }} on Google Plus" class="social-link" data-original-title="Google Plus">
+						<i class="icon google-icon"><img src="{{ 'google-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">Google Plus</span>
 					</a>
 				</li>
 			{% endif %}
 			{% if settings.social_rss != blank %}
 				<li class="rss">
-					<a target="_blank" href="{{ settings.social_rss }}" title="{{ shop.name }} on RSS" class="btn-social" data-original-title="RSS">
-						<i class="fa fa-rss-square"></i>
-						<span>RSS</span>
+					<a target="_blank" href="{{ settings.social_rss }}" title="{{ shop.name }} on RSS" class="social-link" data-original-title="RSS">
+						<i class="icon rss-icon"><img src="{{ 'rss-icon--color.svg' | asset_url }}" width="40" height="40" /></i>
+						<span class="sr-only">RSS</span>
 					</a>
 				</li>
 			{% endif %}

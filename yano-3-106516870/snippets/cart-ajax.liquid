@@ -47,16 +47,19 @@
 									{% endraw %}
 								{% endif %}
 								{% raw %}
+
 							</div>
 						</div>
 						<div class="drawerProRight col-xs-12 col-sm-4 col-md-3">
-							<div class="ajaxcartQty">
+							<div class="ajaxcartQty quantity__selector">
 								<button type="button" class="qtyAdjust qtyMinus" data-id="{{id}}" data-qty="{{itemMinus}}" data-line="{{line}}">
-									<span class="txtFallback">&minus;</span>
+									<i class="icon minus-icon icon-white"></i>
+									<span class="sr-only">&minus;</span>
 								</button>
-								<input type="text" name="updates[]" class="qtyNum" value="{{itemQty}}" min="0" data-id="{{id}}" data-line="{{line}}"  pattern="[0-9]*" />
+								<input type="text" name="updates[]" class="qtyNum quantity__field" value="{{itemQty}}" min="0" data-id="{{id}}" data-line="{{line}}"  pattern="[0-9]*" />
 								<button type="button" class="qtyAdjust qtyPlus" data-id="{{id}}" data-line="{{line}}" data-qty="{{itemAdd}}">
-									<span class="txtFallback">+</span>
+									<i class="icon plus-icon icon-white"></i>
+									<span class="sr-only">+</span>
 								</button>
 							</div>
 						</div>
@@ -107,26 +110,30 @@
 </script>
 <script id="velaAjaxQty" type="text/template">
 	{% raw %}
-		<div class="ajaxcartQty">
-			<button type="button" class="qtyAdjust qtyMinus" data-id="{{id}}" data-qty="{{itemMinus}}">
-				<span class="txtFallback">&minus;</span>
+		<div class="ajaxcartQty quantity__selector">
+			<button type="button" class="quantity__btn quantity__btn--minus qtyAdjust qtyMinus" data-id="{{id}}" data-qty="{{itemMinus}}">
+				<i class="icon minus-icon icon-white"></i>
+				<span class="sr-only">&minus;</span>
 			</button>
-			<input type="text" class="qtyNum" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
-			<button type="button" class="qtyAdjust qtyPlus" data-id="{{id}}" data-qty="{{itemAdd}}">
-				<span class="txtFallback">+</span>
+			<input type="text" class="qtyNum quantity__field" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
+			<button type="button" class="quantity__btn quantity__btn--plus qtyAdjust qtyPlus" data-id="{{id}}" data-qty="{{itemAdd}}">
+				<i class="icon plus-icon icon-white"></i>
+				<span class="sr-only">+</span>
 			</button>
 		</div>
 	{% endraw %}
 </script>
-<script id="velaJsQty" type="text/template">
+<script id="js-quantity" type="text/template">
 	{% raw %}
-		<div class="velaJsQty">
-			<button type="button" class="velaQtyAdjust velaQtyAdjustMinus" data-id="{{id}}" data-qty="{{itemMinus}}">
-				<span class="txtFallback">&minus;</span>
+		<div class="js-quantity quantity__selector">
+			<button type="button" class="quantity__btn quantity__btn--minus js-quantityAdjust js-quantityAdjustMinus" data-id="{{id}}" data-qty="{{itemMinus}}">
+				<i class="icon minus-icon icon-white"></i>
+				<span class="sr-only">&minus;</span>
 			</button>
-			<input type="text" class="velaQtyNum" value="{{itemQty}}" min="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}" />
-			<button type="button" class="velaQtyAdjust velaQtyAdjustPlus" data-id="{{id}}" data-qty="{{itemAdd}}">
-				<span class="txtFallback">+</span>
+			<input type="text" class="js-quantityNumber quantity__field" value="{{itemQty}}" min="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}" />
+			<button type="button" class="quantity__btn quantity__btn--plus js-quantityAdjust js-quantityAdjustPlus" data-id="{{id}}" data-qty="{{itemAdd}}">
+				<i class="icon plus-icon icon-white"></i>
+				<span class="sr-only">+</span>
 			</button>
 		</div>
 	{% endraw %}

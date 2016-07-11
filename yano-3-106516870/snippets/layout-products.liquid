@@ -1,24 +1,23 @@
-{% if settings.products_homepage_limit != blank %}
-	{% assign product_per_page = settings.products_homepage_limit %}
-{% else %}
-	{% assign product_per_page = 8 %}
-{% endif %}
-
-{% assign product_grid = settings.products_homepage_columns %}
 {% if settings.products_homepage_enable %}
 	<section class="section section__products">
 		<div class="container">
 			{% if settings.products_list_collection == blank %}
 				Please select a collection in your theme settings to display products
 			{% else %}
+				{% if settings.products_homepage_limit != blank %}
+					{% assign product_homepage_per_page = settings.products_homepage_limit %}
+				{% else %}
+					{% assign product_homepage_per_page = 3 %}
+				{% endif %}
+				{% assign product_grid = settings.products_homepage_columns %}
 				<div class="section__header">
 					<h3 class="title">{{ settings.products_homepage_title }}</h3>
 					<span class="subtitle">{{ settings.products_homepage_description }}</span>
 				</div>
 				<div class="section__content">
 					<ul id="listCollection" class="group product__collection product__grid">
-						{% for product in collections[settings.products_list_collection].products by product_per_page %}
-							<li class="column one-half{% if product_grid == 4 %} one-fourth-lg{% else if product_grid == 3 %} one-third-lg{% endif %}">
+						{% for product in collections[settings.products_list_collection].products by limit:product_homepage_per_page %}
+							<li class="column one-half {% if product_grid == '4' %} one-fourth-lg{% elsif product_grid == '3' %} one-third-lg{% endif %}">
 								{% include 'product-grid-item' %}
 							</li>
 						{% endfor %}

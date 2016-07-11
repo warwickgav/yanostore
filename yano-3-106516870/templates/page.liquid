@@ -1,14 +1,9 @@
 {% include 'breadcrumb' %}
-<section id="pageContent">
-	<div class="container">
-		<div class="pageContainer">
-			<h1 class="velaPageTitle">{{ page.title }}</h1>
-
-			<div class="pageContent">
-				<div class="rte">
-					{{ page.content }}
-				</div>
-			</div>
-		</div>
+<div class="container">
+	<div class="page-header">
+		<h1 class="page-title">{{ page.title }}</h1>
 	</div>
-</section>
+	<div class="page-content">
+		{{ page.content }}
+	</div>
+</div>
