@@ -172,7 +172,7 @@ var ajaxCart = (function(module, $) {
         $cartContainer.empty();
         if (cart.item_count === 0) {
             $cartContainer
-            .append('<p>' + {{ 'cart.general.empty' | t | json }} + '</p>');
+            .append('<div class="cart__empty">' + {{ 'cart.general.empty' | t | json }} + '</div>');
             cartCallback(cart);
             return;
         }

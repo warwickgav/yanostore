@@ -472,6 +472,7 @@ $title-font: 'futura-pt', 'Avenir', Helvetica Neue, Helvetica, Arial, sans-serif
 $button-font: 'futura-pt', 'Avenir', Helvetica Neue, Helvetica, Arial, sans-serif;
 $nav-font: 'futura-pt', 'Avenir', Helvetica Neue, Helvetica, Arial, sans-serif;
 
+
 /*	==================================
 	:: Background
 =================================== */
@@ -930,8 +931,9 @@ img {
 =================================== */
 
 .icon {
+	display: inline-block;
+	line-height: 1;
 	font-size: 0;
-	display: inline;
 }
 
 /*	==================================
@@ -1003,6 +1005,17 @@ img {
 	&:hover {
 		background-color: transparent;
 		border-color: $action-button-hover;
+		color: $action-button-hover;
+	}
+}
+
+.btn__action--link {
+	background-color: transparent;
+	border: 2px solid transparent;
+	color: $action-button;
+	&:hover {
+		background-color: transparent;
+		border-color: transparent;
 		color: $action-button-hover;
 	}
 }
@@ -1177,7 +1190,42 @@ input, textarea, select {
 .drawer__header {
 	height: 64px;
 	padding: 10px 15px;
+	text-align: center;
+	border-bottom: 1px solid $border;
+	position: relative;
 }
+.drawer__title {
+	font: 500 0.875em $title-font;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	display: block;
+	padding-top: 11px;
+}
+
+.drawer__close {
+	position: absolute;
+	top: 0;
+}
+
+.drawer__header .drawer__close {
+	height: 64px;
+	width: 64px;
+	line-height: 72px;
+}
+
+.cart__empty {
+	padding: 20px;
+	text-align: center;
+}
+
+.drawerRight .drawer__close {
+	left: 0;
+}
+
+.drawerLeft .drawer__close {
+	right: 0;
+}
+
 .drawer__content {
 	padding: 5px 15px 15px;
 }
@@ -2003,12 +2051,86 @@ input, textarea, select {
 =================================== */
 
 /*	==================================
+	:: COMMON
+=================================== */
+
+.page__header .page__title {
+	padding: 1em 0 2em;
+	margin: 0;
+}
+
+/*	==================================
 	:: HOME
 =================================== */
 
 /*	==================================
 	:: COLLECTIONS
 =================================== */
+
+.collection__header .page__title {
+	text-align: center;
+}
+
+.collection__tools {
+	border: 2px solid $border;
+	border-width: 2px 0;
+	padding: 0.5em 0;
+	@include cf();
+}
+
+.collection__view {
+	@include respond-to-min(medium){
+		float: left;
+	}
+}
+
+.collection__sort {
+	@include respond-to-min(medium){
+		float: right;
+	}
+}
+
+.view__btn {
+	background: $brand;
+	border: 2px solid $brand;
+	height: 38px;
+	padding: 0;
+	cursor: pointer;
+	
+	&:hover {
+		background-color: $brand-hover;
+		border-color: $brand-hover;
+		fill: #fff;
+	}
+}
+
+.view__btn .list-icon,
+.view__btn .grid-icon {
+	fill: #fff;
+}
+
+.view__btn svg {
+	width: 34px;
+	height: 34px;
+}
+
+.js-view-active {
+	background-color: $base-lighter;
+	border-color: $base-lighter;
+	
+	&:hover {
+		background-color: $base-lighter;
+		border-color: $base-lighter;
+	}
+}
+
+.js-view-active .list-icon,
+.js-view-active .grid-icon {
+	fill: darken($base-light, 10%);
+}
+
+
+
 
 /*	==================================
 	:: PRODUCT PAGE
@@ -2123,6 +2245,7 @@ input, textarea, select {
 /*	==================================
 	:: BLOG
 =================================== */
+
 
 
 

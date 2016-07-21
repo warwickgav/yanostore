@@ -1,19 +1,49 @@
-<div class="collView">
-    <label>{{'collections.general.view' | t}}</label>
-    <button type="button" title="{{ 'collections.general.grid_view' | t }}" class="changeView{% unless template contains 'list' %} changeViewActive{% endunless %}" data-view="grid">
-        <span class="iconChangeView">
-            <span class="fa fa-th" aria-hidden="true"></span>
-            <span class="hidden">{{ 'collections.general.grid_view' | t }}</span>
-        </span>
-    </button>
-    <button type="button" title="{{ 'collections.general.list_view' | t }}" class="changeView{% if template contains 'list' %} changeViewActive{% endif %}" data-view="list">
-        <span class="iconChangeView">
-            <span class="fa fa-list" aria-hidden="true"></span>
-            <span class="hidden">{{ 'collections.general.list_view' | t }}</span>
-        </span>
-    </button>
+<div class="collection__view">
+	<label>{{'collections.general.view' | t}}</label>
+	<button type="button" title="{{ 'collections.general.grid_view' | t }}" class="view__btn view__btn--grid js-view{% unless template contains 'list' %} js-view-active{% endunless %}" data-view="grid">
+		<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<style>
+				.grid-icon {
+					fill: #55D4AF;
+				}
+			</style>
+			<g id="grid-icon--brand" class="grid-icon" stroke="none" stroke-width="1" transform="translate(7.000000, 7.000000)">
+				<rect id="grid-item" x="0" y="0" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="10" y="0" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="20" y="0" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="0" y="10" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="10" y="10" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="20" y="10" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="0" y="20" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="10" y="20" width="6" height="6" rx="2"></rect>
+				<rect id="grid-item" x="20" y="20" width="6" height="6" rx="2"></rect>
+			</g>
+		</svg>
+	</button>
+	<button type="button" title="{{ 'collections.general.list_view' | t }}" class="view__btn view__btn--list js-view{% if template contains 'list' %} js-view-active{% endif %}" data-view="list">
+		<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<style>
+				.list-icon {
+					fill: #55D4AF;
+				}
+			</style>
+			<g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 30.000000)">
+				<rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+				<rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+			</g>
+			<g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 18.000000)">
+				<rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+				<rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+			</g>
+			<g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 7.000000)">
+				<rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+				<rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+			</g>
+		</svg>
+	</button>
 </div>
-<div class="collSortBy">
+
+<div class="collection__sort">
     <label for="SortBy">{{ 'collections.sorting.title' | t }}</label>
     <select name="SortBy" id="SortBy" class="form-control">
         <option value="manual">{{ 'collections.sorting.featured' | t }}</option>

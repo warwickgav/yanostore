@@ -28,13 +28,13 @@
 					</button>
 				</form>
 			{% else %}
-				<a class="btn btn--icon btn__wishlist in-wishlist" href="{{ pagewishlist.url }}">
+				<a class="btn btn__action--link btn__wishlist in-wishlist" href="{{ pagewishlist.url }}">
 					<i class="icon icon-header--dark"></i>
 					<span>{{ 'wishlist.general.added_to_wishlist' | t }}</span>
 				</a>
 			{% endif %}
 		{% else %}
-			<a class="btn btn--icon btn__wishlist" href="/account/login" title="{{ 'wishlist.general.add_to_wishlist' | t }}">
+			<a class="btn btn__action--link btn__wishlist" href="/account/login" title="{{ 'wishlist.general.add_to_wishlist' | t }}">
 				<i class="icon icon-header--dark"></i>
 				<span>{{ 'wishlist.general.add_to_wishlist' | t }}</span>
 			</a>

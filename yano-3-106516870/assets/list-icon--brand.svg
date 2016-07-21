@@ -1,0 +1,19 @@
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        .list-icon {
+            fill: #55D4AF;
+        }
+    </style>
+    <g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 29.000000)">
+        <rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+        <rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+    </g>
+    <g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 19.000000)">
+        <rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+        <rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+    </g>
+    <g id="list" class="list-icon" stroke="none" stroke-width="1" transform="translate(6.000000, 9.000000)">
+        <rect id="list-text" x="11" y="0" width="17" height="3" rx="1.5"></rect>
+        <rect id="list-img" x="0" y="0" width="6" height="3" rx="1.5"></rect>
+    </g>
+</svg>

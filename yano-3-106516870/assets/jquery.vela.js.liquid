@@ -409,16 +409,16 @@ vela.ajaxFilter = function(){
         });
     }
     ajaxFilterView = function() {
-        $(".changeView").click(function(event) {
+        $(".js-view").click(function(event) {
             event.preventDefault();
-            if (!$(this).hasClass("changeViewActive")) {
+            if (!$(this).hasClass("js-view-active")) {
                 if ($(this).data('view') == 'list' ) {
                     Shopify.queryParams.view = "list";
                 } else {
                     Shopify.queryParams.view = "grid";
                 }
-                $(".changeView").removeClass('changeViewActive');
-                $(this).addClass('changeViewActive');
+                $(".js-view").removeClass('js-view-active');
+                $(this).addClass('js-view-active');
                 ajaxFilterClick();
             }
         });
